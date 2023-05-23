@@ -1,0 +1,43 @@
+.join-container{
+    /* height: 30vh; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 calc(5% + 1rem);
+}
+.join-container >div{
+    flex: 0.6;
+    padding: 4rem 0;
+}
+.join-container h1{
+    font-size: 50px;
+    padding: 0 0 1rem;
+}
+.join-container p{
+    color: gray;
+}
+.join-btn{
+    flex: 0.4;
+    text-align: center;
+}
+.join-btn a{
+    padding: 0.4rem 1.5rem;
+    cursor: pointer;
+    font: inherit;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+.join-btn a:first-child{
+    background-color: #1a688c;
+    color: white;
+    border: #1a688c 2px solid;
+    margin-right: 1rem;
+}
+.join-btn a:last-child{
+    background-color: transparent;
+    color: #1a688c;
+    border: #1a688c  2px solid;
+}
+.join-btn a:hover{
+    transform:scale(1.05);
+}

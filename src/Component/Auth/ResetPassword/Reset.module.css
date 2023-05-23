@@ -1,0 +1,90 @@
+.reset-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 6rem;
+}
+.reset-logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.reset-logo img {
+  width: 100px;
+}
+.reset-form {
+  width: 500px;
+  border: 2px solid #222c65;
+  border-radius: 9px;
+  box-shadow: 5px 5px 12px #0003, -5px -5px 12px #0003;
+}
+.reset-form h1 {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 45px;
+  text-transform: capitalize;
+}
+.reset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reset-formControl {
+  display: flex;
+  flex-direction: column;
+  margin: 0 13%;
+}
+.reset-formControl label {
+  color: gray;
+  padding-bottom: 0.2em;
+}
+.reset-formControl input {
+  padding: 0.5rem 0.7rem;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #0a6ec7;
+  outline: none;
+  background-color: #c4f1ff19;
+}
+.reset-formControl>span{
+  font-size: 12px;
+  color: #ff0000;
+  padding: .2rem 0;
+  text-transform: lowercase;
+}
+/* .reset-formControl.invalid > label {
+  color: #ff0000;
+} */
+.reset-formControl.invalid > input {
+  border: 0.5px solid #515151;
+  background-color: #ffd2d2;
+}
+.reset-btn {
+  margin: 0 13%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.reset-btn button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font: inherit;
+  border: #222c65 1px solid;
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #222c65;
+}
+.reset-btn button:hover {
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+}
+.reset-footer {
+  color: gray;
+  text-align: center;
+}

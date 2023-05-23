@@ -1,0 +1,37 @@
+
+.btn button {
+  font: inherit;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.7rem 0;
+  box-shadow: 1px 1px 4px #0002;
+  
+}
+.btn button:first-child {
+  background-color: transparent;
+  border: 2px solid #1a688c;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.btn button:first-child a{
+  color: #1a688c;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+
+}
+.btn button:last-child {
+  background-color: #1a688c;
+  border: 2px solid #1a688c;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.btn button:last-child a{
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+}
+
+.btn button:hover{
+  transform: scale(1.05);
+}
