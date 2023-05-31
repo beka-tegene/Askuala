@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
+import { useDispatch } from "react-redux";
+import { signup } from "../../../Store/Auth";
 const Register = () => {
+  const dispatch = useDispatch()
   const [fullNameValid, setFullNameValid] = useState();
   const [emailValid, setEmailValid] = useState();
   const [passwordValid, setPasswordValid] = useState();
@@ -35,7 +38,20 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    const FullName = form.fullName
+    const email = form.email
+    const password = form.password
+    const cPassword = form.cpassword;
+    dispatch(
+      signup({
+        data: {
+          FullName,
+          email,
+          password,
+          cPassword,
+        },
+      })
+    );
   };
   return (
     <div className={classes["sign-container"]}>
