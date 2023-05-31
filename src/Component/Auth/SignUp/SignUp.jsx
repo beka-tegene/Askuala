@@ -35,35 +35,7 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const fullName = form.fullName;
-    // const email = form.email;
-    // const password = form.password;
-    // const cpassword = form.cpassword;
-    // if (password === cpassword) {
-    //   fetch("http://localhost:5000/register", {
-    //     method: "POST",
-    //     crossDomain: true,
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //       "Access-Control-Allow-Origin": "*",
-    //     },
-    //     body: JSON.stringify({
-    //       fullName,
-    //       email,
-    //       password,
-    //       cpassword,
-    //     }),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data, "userRegister");
-    //       window.location.href = "./login";
-    //     });
-    // } else {
-    //   // alert("make sure you have the right password");
-    //   setCPasswordValid(false);
-    // }
+
   };
   return (
     <div className={classes["sign-container"]}>
