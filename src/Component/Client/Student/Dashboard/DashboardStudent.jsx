@@ -3,7 +3,6 @@ import style from "./DashboardStudent.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
-import Chart from "./Chart";
 const DUMMY_DATA = [
   {
     title: "operating system",
@@ -90,7 +89,7 @@ const DashboardStudent = () => {
               ))}
             </div>
             <div className={style.chart}>
-              <Chart />
+               hello
             </div>
           </div>
           <div className={style.bottom}>
