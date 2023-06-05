@@ -43,7 +43,7 @@
   color: gray;
   padding-bottom: 0.2em;
 }
-.form-control input {
+.form-control input , .form-control select {
   padding: 0.5rem 0.7rem;
   font-size: 16px;
   border-radius: 5px;
@@ -53,6 +53,16 @@
   /* border: none; */
   /* border-bottom: 2px solid #1a688c; */
   /* color: #579BB1; */
+}
+.form-controlss{
+  display: flex;
+  gap: 1rem;
+  margin: 0 4rem;
+
+}
+.form-controlss label{
+  color: gray;
+  padding-bottom: 0.2em;
 }
 .form-control>span{
   font-size: 12px;

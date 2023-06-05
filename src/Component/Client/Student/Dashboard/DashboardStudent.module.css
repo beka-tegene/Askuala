@@ -1,0 +1,236 @@
+.container {
+  padding: 0 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+}
+.head {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* border: 1px solid; */
+  width: 80%;
+  padding: 1rem;
+  background-color: #5f6171;
+  box-shadow: 0px 0px 5px #5f6171, 0px 0px 5px #5f6171,
+    inset 0px 0px 9px #5f6171;
+
+  border-radius: 10px;
+}
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.user {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #96abff;
+  border-left: 5px solid #d7d7d7;
+  box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+    inset 0px 0px 9px #cad5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user img {
+  width: 90%;
+  border-radius: 50%;
+}
+.right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.average h1,
+.attendance h1 {
+  color: #96abff;
+  text-shadow: 0 1px 5px #cad5ff;
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent , #96abff ) ; */
+  filter: hue-rotate(288deg);
+}
+.grade > div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid #96abff;
+  border-top: 5px solid #5f6171;
+  box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+    inset 0px 0px 9px #cad5ff;
+}
+.information h2 {
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
+.information h5 {
+  color: #d7d7d7;
+  font-size: 9px;
+  text-transform: uppercase;
+  /* padding: .4rem 0; */
+}
+.right h5 {
+  color: #d7d7d7;
+  font-size: 12px;
+  padding: 0.4rem 0;
+}
+.middle {
+  /* padding: 1rem 0; */
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+  width: 100%;
+}
+.librarys {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0px 2px 5px #cad5ff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.librarys > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.librarys > div > h4 {
+  color: #d7d7d7;
+  font-size: 12px;
+}
+.librarys > div > p {
+  color: #96abff;
+  font-size: 13px;
+}
+.library {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-around;
+  width: 90%;
+  /* border: 2px solid #96abff;     */
+  padding: 0.5rem;
+  border-radius: 10px;
+  /* color: #96abff; */
+  background-color: #e6eaff;
+}
+.library > i {
+  font-size: 26px;
+  color: #8995c6;
+}
+.library h6 {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  text-transform: capitalize;
+  cursor: pointer;
+  color: #bcbcbc;
+}
+.library > h6 > i {
+  font-size: 18px;
+  color: #4d62b5;
+}
+
+.library h5 {
+  text-transform: capitalize;
+  color: #272727;
+  font-size: 12px;
+}
+.todos {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0px 2px 5px #cad5ff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.todos > h4 {
+  color: #d7d7d7;
+  font-size: 12px;
+}
+.todo {
+  border: 1px solid;
+  margin: 1rem 0;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+.todo input {
+  width: 80%;
+  padding: 0.3rem;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.todo button {
+  padding: 0.3rem 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-left: 2px solid;
+  width: 20%;
+}
+.list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.input {
+  text-decoration: line-through;
+  color: #a53d3d;
+}
+.chart {
+  width: 55%;
+  height: 48vh;
+  box-shadow: 0px 2px 5px #cad5ff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.bottom {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0px 2px 5px #cad5ff;
+  padding: 1rem ;
+  border-radius: 10px;
+  
+}
+.bottom h4{
+color: #bcbcbc;
+  font-weight: 100;
+  letter-spacing: .1em;
+}
+.flexs{
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.flex{
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

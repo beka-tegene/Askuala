@@ -3,17 +3,27 @@ import { Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
 import { useDispatch } from "react-redux";
 import { signup } from "../../../Store/Auth";
+import Input from "./Input";
 const Register = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [idValid, setIdValid] = useState();
   const [fullNameValid, setFullNameValid] = useState();
   const [emailValid, setEmailValid] = useState();
+  const [phoneNumberValid, setPhoneNumberValid] = useState();
+  const [genders, setGender] = useState();
+  const [roleValid, setRoleValid] = useState();
+  const [departmentValid, setDepartmentValid] = useState();
   const [passwordValid, setPasswordValid] = useState();
   const [cPasswordValid, setCPasswordValid] = useState();
   const [check, setCheck] = useState();
   const [formValid, setFormValid] = useState(false);
   const [form, setForm] = useState({
+    id: "",
     fullName: "",
     email: "",
+    phoneNumber: "",
+    role: "",
+    department: "",
     password: "",
     cpassword: "",
   });
@@ -35,18 +45,30 @@ const Register = () => {
       // form.password === form.cpassword
     );
   }, [form]);
-
+  const onGenderChange = (event) => {
+    setGender(event.target.value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const FullName = form.fullName
-    const email = form.email
-    const password = form.password
+    const id = form.id;
+    const FullName = form.fullName;
+    const email = form.email;
+    const phoneNumber = form.phoneNumber;
+    const gender = genders;
+    const role = form.role;
+    const department = form.department;
+    const password = form.password;
     const cPassword = form.cpassword;
     dispatch(
       signup({
         data: {
+          id,
           FullName,
           email,
+          phoneNumber,
+          gender,
+          role,
+          department,
           password,
           cPassword,
         },
@@ -59,91 +81,169 @@ const Register = () => {
         <h1 className={classes["sign-h1"]}>Sign Up</h1>
         <h4 className={classes["sign-h4"]}>Hello! Register to get started</h4>
         <form className={classes["sign-form"]} onSubmit={handleSubmit}>
-          <div
-            className={`${classes["form-control"]} ${
-              fullNameValid === false ? classes.invalid : ""
-            }`}
-          >
-            <label htmlFor="">full name</label>
-            <input
-              type={"text"}
-              id="fullName"
-              value={form.fullName}
-              onChange={handleChange}
-              onBlur={() => setFullNameValid(form.fullName.trim().length >= 6)}
-            />
-            {fullNameValid === false && (
-              <span>* please make sure to fill the required filed</span>
-            )}
+          <Input
+            valid={idValid}
+            name={"ID"}
+            type={"text"}
+            id={"id"}
+            value={form.id}
+            onChange={handleChange}
+            onBlur={() => setIdValid(form.id.trim().length === 11)}
+            text1={"* please make sure to fill the required filed"}
+            text2={"* id must contend equal to 11 character"}
+          />
+          <Input
+            valid={fullNameValid}
+            name={"Full Name"}
+            type={"text"}
+            id={"fullName"}
+            value={form.fullName}
+            onChange={handleChange}
+            onBlur={() => setFullNameValid(form.fullName.trim().length >= 6)}
+            text1={"* please make sure to fill the required filed"}
+          />
+          <Input
+            valid={emailValid}
+            name={"Email"}
+            type={"email"}
+            id={"email"}
+            value={form.email}
+            onChange={handleChange}
+            onBlur={() =>
+              setEmailValid(
+                form.email.includes("@") && form.email.includes(".")
+              )
+            }
+            text1={"* please make sure to fill the required filed"}
+            text2={"* please include an '@' and '.' in the email address"}
+          />
+          <Input
+            valid={phoneNumberValid}
+            name={"Phone Number"}
+            type={"tel"}
+            id={"phoneNumber"}
+            value={form.phoneNumber}
+            onChange={handleChange}
+            onBlur={() =>
+              setPhoneNumberValid(
+                form.phoneNumber.trim().length >= 10 &&
+                  form.phoneNumber.includes("+251")
+              )
+            }
+            text1={"* please make sure to fill the required filed"}
+            text2={
+              "* phone number must contend more than 10 character & start with +251 "
+            }
+          />
+          <div className={`${classes["form-controlss"]}`}>
+            <label htmlFor="Gender">Gender</label>
+            <div>
+              <input
+                type={"radio"}
+                // id="gender"
+                name="Gender"
+                value={"male"}
+                checked={genders === "male"}
+                // onChange={handleChange}
+                onChange={onGenderChange}
+              />
+              <label htmlFor="">Male</label>
+            </div>
+            <div>
+              <input
+                type={"radio"}
+                // id="gender"
+                name="Gender"
+                value={"female"}
+                checked={genders === "female"}
+                // onChange={handleChange}
+                onChange={onGenderChange}
+              />
+              <label htmlFor="">Female</label>
+            </div>
           </div>
           <div
             className={`${classes["form-control"]} ${
-              emailValid === false ? classes.invalid : ""
+              roleValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="">Email</label>
-            <input
-              type={"email"}
-              id="email"
-              value={form.email}
+            <label htmlFor="">Role</label>
+            <select
+              name="role"
+              id="role"
+              value={form.role}
               onChange={handleChange}
-              onBlur={() =>
-                setEmailValid(
-                  form.email.includes("@") && form.email.includes(".")
-                )
-              }
-            />
-            {emailValid === false && (
+              onBlur={() => setRoleValid(form.role)}
+            >
+              <option disabled selected></option>
+              <option value="Admin">Admin</option>
+              <option value="SuperVisor">SuperVisor</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Student">Student</option>
+            </select>
+            {roleValid === false && (
               <>
-                <span>
-                  * please include an '@' and '.' in the email address
-                </span>
+                <span>* please make sure to fill the required filed</span>
               </>
             )}
           </div>
-          <div
-            className={`${classes["form-control"]} ${
-              passwordValid === false ? classes.invalid : ""
-            }`}
-          >
-            <label htmlFor="">Password</label>
-            <input
-              type={"password"}
-              id="password"
-              value={form.password}
-              onChange={handleChange}
-              onBlur={() => setPasswordValid(form.password.trim().length > 7)}
-            />
-            {passwordValid === false && (
-              <>
-                <span>* please make sure to fill the required filed </span>
-                <span>* password must contend more than 8 character</span>
-              </>
-            )}
-          </div>
-          <div
-            className={`${classes["form-control"]} ${
-              cPasswordValid === false ? classes.invalid : ""
-            }`}
-          >
-            <label htmlFor="">Confirm Password</label>
-            <input
-              type={"password"}
-              id="cpassword"
-              value={form.cpassword}
-              onChange={handleChange}
-              onBlur={() => setCPasswordValid(form.password.trim().length > 7)}
-            />
-            {cPasswordValid === false && (
-              <span>* please make sure your password is the same</span>
-            )}
-            {cPasswordValid === false && (
-              <>
-                <span>* please make sure to fill the required filed </span>
-                <span>* password must contend more than 8 character</span>
-              </>
-            )}
-          </div>
+          {(form.role === "Student" || form.role === "Teacher") && (
+            <div
+              className={`${classes["form-control"]} ${
+                departmentValid === false ? classes.invalid : ""
+              }`}
+            >
+              <label htmlFor="">Department</label>
+              <select
+                name="department"
+                id="department"
+                value={form.department}
+                onChange={handleChange}
+                onBlur={() => setDepartmentValid(form.department)}
+              >
+                <option disabled selected></option>
+                <option value="Computer engineering">
+                  Computer engineering
+                </option>
+                <option value="Information system">Information system</option>
+                <option value="electrical engineering">
+                  electrical engineering
+                </option>
+                <option value="mechanical engineering">
+                  mechanical engineering
+                </option>
+              </select>
+              {departmentValid === false && (
+                <>
+                  <span>* please make sure to fill the required filed</span>
+                </>
+              )}
+            </div>
+          )}
+          <Input
+            valid={passwordValid}
+            name={"Password"}
+            type={"password"}
+            id={"password"}
+            value={form.password}
+            onChange={handleChange}
+            onBlur={() => setPasswordValid(form.password.trim().length > 7)}
+            text1={"* please make sure to fill the required filed"}
+            text2={"* password must contend more than 8 character "}
+          />
+          <Input
+            valid={cPasswordValid}
+            name={"Confirm Password"}
+            type={"password"}
+            id={"cpassword"}
+            value={form.cpassword}
+            onChange={handleChange}
+            onBlur={() => setCPasswordValid(form.password.trim().length > 7)}
+            text1={"* please make sure to fill the required filed"}
+            text2={
+              "* password must contend more than 8 character && * please make sure your password is the same "
+            }
+          />
           <div className={classes["form-controls"]}>
             <input
               type={"checkbox"}

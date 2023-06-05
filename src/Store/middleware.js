@@ -1,5 +1,6 @@
 import { call, takeLatest } from "redux-saga/effects";
 import { fetchUserLogin, fetchUserRegister } from "./FetchAskuala";
+import { registerGet } from "./Auth";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
@@ -8,7 +9,9 @@ export function* watchFetchAskuala() {
 
 function* userLogin(action) {
   yield call(fetchUserLogin, action.payload.data);
+  yield registerGet();
 }
 function* userRegister(action) {
   yield call(fetchUserRegister, action.payload.data);
+  yield registerGet();
 }
