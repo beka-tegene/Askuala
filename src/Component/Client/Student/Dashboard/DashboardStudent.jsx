@@ -3,6 +3,8 @@ import style from "./DashboardStudent.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { todoLists } from "../../../../Store/Student/dashboard";
 const DUMMY_DATA = [
   {
     title: "operating system",
@@ -20,16 +22,40 @@ const DUMMY_DATA = [
     title: "Applied maths three",
   },
 ];
+const DUMMY_ANNOUNCE = [
+  {
+    title: "tomorrow have class",
+    name: "Samuel Biniyam",
+    role: "Teacher",
+    date: "12:00",
+  },
+  {
+    title: "tomorrow have class",
+    name: "Samuel Biniyam",
+    role: "Teacher",
+    date: "12:00",
+  },
+  {
+    title: "tomorrow have class",
+    name: "Samuel Biniyam",
+    role: "Teacher",
+    date: "12:00",
+  },
+];
 const DashboardStudent = () => {
   const [todo, setTodo] = useState();
-  const [todoList, setTodoList] = useState([]);
   const [checked, setChecked] = useState();
+  const dispatch = useDispatch()
+  const todoList = useSelector((state) => state.Student.todo);
   const todoHandler = (e) => {
     setTodo(e.target.value)
   }
   const submitHandler = (e) => {
     e.preventDefault();
-    setTodoList((prev) => [...prev, todo ]);
+    // setTodoList((prev) => [...prev, todo]);
+    dispatch(todoLists({
+      data:todo
+    }));
     setTodo('')
   };
   
@@ -89,7 +115,18 @@ const DashboardStudent = () => {
               ))}
             </div>
             <div className={style.chart}>
-               hello
+              <div className={style.chartHead}>
+                <h4>Announcement</h4>
+                <p>New</p>
+              </div>
+              {DUMMY_ANNOUNCE.map((item, index) => (
+                <div className={style.announce} key={index}>
+                  <h4>{item.title}</h4>
+                  <h5>{item.name}</h5>
+                  <h6>{item.role}</h6>
+                  <h6>{item.date}</h6>
+                </div>
+              ))}
             </div>
           </div>
           <div className={style.bottom}>
@@ -118,7 +155,7 @@ const DashboardStudent = () => {
                 id="checkbox"
                 onChange={(e) => setChecked(e.target.checked)}
               />
-              <h4 className={`${checked && style.input}`}>{item}</h4>
+              <h4 className={`${checked && style.input}`}>{item.inputTodo}</h4>
             </div>
           ))}
         </div>

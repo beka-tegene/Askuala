@@ -202,10 +202,44 @@
 }
 .chart {
   width: 55%;
-  height: 48vh;
+  display: flex;
+  flex-direction: column;
+  /* height: 48vh; */
   box-shadow: 0px 2px 5px #cad5ff;
   padding: 1rem;
   border-radius: 10px;
+}
+.chartHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 0 ;
+}
+.chartHead>h4 {
+  color: #d7d7d7;
+  font-size: 12px;
+}
+.chartHead>p {
+  color: #96abff;
+  font-size: 13px;
+}
+.announce{
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: 0 .5rem ;
+  border-radius: 10px;
+  cursor: pointer;
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
+}
+.announce:hover{
+  background-color: #f5f5f5;
+  
+}
+.announce h5, .announce h6{
+  text-align: right;
+  color: #d7d7d7;
 }
 .bottom {
   width: 97%;
