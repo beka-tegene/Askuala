@@ -45,20 +45,22 @@ const DUMMY_ANNOUNCE = [
 const DashboardStudent = () => {
   const [todo, setTodo] = useState();
   const [checked, setChecked] = useState();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const todoList = useSelector((state) => state.Student.todo);
   const todoHandler = (e) => {
-    setTodo(e.target.value)
-  }
+    setTodo(e.target.value);
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     // setTodoList((prev) => [...prev, todo]);
-    dispatch(todoLists({
-      data:todo
-    }));
-    setTodo('')
+    dispatch(
+      todoLists({
+        data: todo,
+      })
+    );
+    setTodo("");
   };
-  
+
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -97,16 +99,18 @@ const DashboardStudent = () => {
             <div className={style.librarys}>
               <div>
                 <h4>Library</h4>
-                <p>New</p>
+                <p></p>
               </div>
               {DUMMY_DATA.map((item, index) => (
                 <div className={style.library} key={index}>
-                  <i>
-                    <RiBook2Fill />
-                  </i>
-                  <h5>{item.title}</h5>
+                  <div>
+
+                    <i>
+                      <RiBook2Fill />
+                    </i>
+                    <h5>{item.title}</h5>
+                  </div>
                   <h6>
-                    book
                     <i>
                       <FaDownload />
                     </i>
@@ -144,7 +148,7 @@ const DashboardStudent = () => {
           <div className={style.todo}>
             <form action="" onSubmit={submitHandler}>
               <input type="text" onChange={todoHandler} value={todo} />
-              <button>Add</button>
+              <button>+</button>
             </form>
           </div>
           {todoList.map((item, index) => (

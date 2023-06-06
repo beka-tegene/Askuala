@@ -19,8 +19,8 @@
   width: 80%;
   padding: 1rem;
   background-color: #5f6171;
-  box-shadow: 0px 0px 5px #5f6171, 0px 0px 5px #5f6171,
-    inset 0px 0px 9px #5f6171;
+  box-shadow: 0px 0px 5px #a4a7b9, 0px 0px 5px #a4a7b9,
+    inset 0px 5px 9px #a4a7b9;
 
   border-radius: 10px;
 }
@@ -37,9 +37,9 @@
   overflow: hidden;
   border-radius: 50%;
   border: 5px solid #96abff;
-  border-left: 5px solid #d7d7d7;
-  box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
-    inset 0px 0px 9px #cad5ff;
+  border-left: 5px solid #ffffff;
+  /* box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+    inset 0px 0px 9px #cad5ff; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +58,7 @@
 .average h1,
 .attendance h1 {
   color: #96abff;
-  text-shadow: 0 1px 5px #cad5ff;
+  /* text-shadow: 0 1px 5px #cad5ff; */
   /* -webkit-box-reflect: below 1px linear-gradient(transparent , #96abff ) ; */
   filter: hue-rotate(288deg);
 }
@@ -67,9 +67,9 @@
   height: 40px;
   border-radius: 50%;
   border: 5px solid #96abff;
-  border-top: 5px solid #5f6171;
-  box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
-    inset 0px 0px 9px #cad5ff;
+  border-top: 5px solid #ffffff;
+  /* box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+    inset 0px 0px 9px #cad5ff; */
 }
 .information h2 {
   letter-spacing: 0.1em;
@@ -127,12 +127,17 @@
   justify-content: space-around;
   width: 90%;
   /* border: 2px solid #96abff;     */
-  padding: 0.5rem;
+  padding: .3rem 1rem;
   border-radius: 10px;
   /* color: #96abff; */
   background-color: #e6eaff;
 }
-.library > i {
+.library>div{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.library >div> i {
   font-size: 26px;
   color: #8995c6;
 }
@@ -163,33 +168,37 @@
   box-shadow: 0px 2px 5px #cad5ff;
   padding: 1rem;
   border-radius: 10px;
+  background-color: #f5f5f5;
 }
 .todos > h4 {
   color: #d7d7d7;
   font-size: 12px;
 }
 .todo {
-  border: 1px solid;
+  border: .5px solid #bcbcbc;
   margin: 1rem 0;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
+  
 }
 .todo input {
   width: 80%;
-  padding: 0.3rem;
+  padding: 0.5rem;
   font-size: 15px;
   outline: none;
   border: none;
   background-color: transparent;
 }
 .todo button {
-  padding: 0.3rem 0;
+  padding: 0 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  border-left: 2px solid;
+  border-left: 2px solid #bcbcbc;
   width: 20%;
+  font-size: 32px;
+  color: #4d62b5;
 }
 .list {
   display: flex;
