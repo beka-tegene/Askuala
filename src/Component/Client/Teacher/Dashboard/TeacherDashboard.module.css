@@ -1,0 +1,133 @@
+.container {
+  padding: 0 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+}
+.head {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* border: 1px solid; */
+  width: 80%;
+  padding: 1rem;
+  background-color: #474747;
+  box-shadow: 0px 0px 5px #a4a7b9, 0px 0px 5px #a4a7b9,
+    inset 0px 5px 9px #a4a7b9;
+
+  border-radius: 10px;
+}
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.user {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #96abff;
+  border-left: 5px solid #ffffff;
+  /* box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+      inset 0px 0px 9px #cad5ff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user img {
+  width: 90%;
+  border-radius: 50%;
+}
+.right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.average h1,
+.attendance h1 {
+  color: #96abff;
+  /* text-shadow: 0 1px 5px #cad5ff; */
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent , #96abff ) ; */
+  filter: hue-rotate(288deg);
+}
+.grade > div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid #96abff;
+  border-top: 5px solid #ffffff;
+  /* box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+      inset 0px 0px 9px #cad5ff; */
+}
+.information h2 {
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
+.information h5 {
+  color: #d7d7d7;
+  font-size: 9px;
+  text-transform: uppercase;
+  /* padding: .4rem 0; */
+}
+.right h5 {
+  color: #d7d7d7;
+  font-size: 12px;
+  padding: 0.4rem 0;
+}
+.cards{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+.card{
+    background-color: #ffffff;
+    box-shadow: 0px 1px 5px #2727271b;
+    color: #272727;
+    padding: 1rem ;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 15%;
+}
+.card h6{
+   text-align: right;
+}
+.notify{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 13px;
+}
+.notify i{
+    font-size: 24px;
+}
+.create{
+    background-color: #ffffff;
+    box-shadow: 0px 1px 5px #2727271b;
+    color: #272727;
+    padding: .5rem 1.5rem ;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    cursor: pointer;
+}
+.create h1 , .create p{
+    text-align: center;
+}
