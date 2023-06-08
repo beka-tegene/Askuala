@@ -1,0 +1,23 @@
+.container {
+  padding: 1rem 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+}
+.Action-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 14px;
+}
+.Action-edit {
+  color: #8a8ad5;
+}
+.Action-delete {
+  color: #ea2f2f;
+}
+.Action-edit:hover {
+  color: #8a8ad580;
+}
+.Action-delete:hover {
+  color: #ea2f2f81;
+}

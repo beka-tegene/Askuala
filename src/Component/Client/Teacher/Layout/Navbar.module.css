@@ -1,0 +1,47 @@
+.userNav-container {
+  padding: 0 2% 0 14rem;
+  height: 11vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px #0003;
+}
+
+.userNav-right {
+
+  display: flex;
+  text-align: right;
+}
+.userNav-menu {
+  display: flex;
+  align-items: center;
+
+}
+
+.userNav-notification {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 6rem;
+}
+.userNav-notification i {
+  cursor: pointer;
+  position: relative;
+  padding: 0.4rem;
+}
+.userNav-notification i span {
+  font-size: 13px;
+  background-color: #e55050;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  color: white;
+}
+

@@ -1,7 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
-import style from "./Transaction.module.css";
-function Transaction() {
+import style from './Member.module.css'
+const TeacherMember = () => {
   const columns = [
     {
       name: "Name",
@@ -25,11 +25,10 @@ function Transaction() {
     },
   ];
   const data = [
-    
     {
-      id: "0002",
-      firstName: "abel max",
-      email: "abelmax@gmail.com",
+      id: "0001",
+      firstName: "john max",
+      email: "johnmax@gmail.com",
       phoneNumber: "+25178981223",
       place: "Addis ababa",
     },
@@ -41,16 +40,23 @@ function Transaction() {
       place: "Addis ababa",
     },
     {
-      id: "0007",
-      firstName: "smon max",
-      email: "smonmax@gmail.com",
+      id: "0004",
+      firstName: "adam max",
+      email: "adammax@gmail.com",
       phoneNumber: "+25178981223",
       place: "Addis ababa",
     },
     {
-      id: "0008",
-      firstName: "ragnar max",
-      email: "ragnarmax@gmail.com",
+      id: "0005",
+      firstName: "hewan max",
+      email: "hewanmax@gmail.com",
+      phoneNumber: "+25178981223",
+      place: "Addis ababa",
+    },
+    {
+      id: "0006",
+      firstName: "set max",
+      email: "setmax@gmail.com",
       phoneNumber: "+25178981223",
       place: "Addis ababa",
     },
@@ -102,17 +108,18 @@ function Transaction() {
         },
       },
   };
-
   return (
-    <div className={style.transactions}>
+    <div className={style.container}>
       <DataTable
-        data={data}
         columns={columns}
-        customStyles={customStyle}
+        data={data}
+        // selectableRows
+        fixedHeader
         pagination
-      /> 
+        customStyles={customStyle}
+      />
     </div>
   );
-}
+};
 
-export default Transaction;
+export default TeacherMember;

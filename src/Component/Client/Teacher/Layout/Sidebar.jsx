@@ -1,12 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Sidebar.module.css";
-import brandIcon from "../../../img/Group 1499.svg";
-import {
-  MdOutlineDashboard,
-} from "react-icons/md";
+import brandIcon from "../../../../img/Group 1499.svg";
+import { MdOutlineDashboard } from "react-icons/md";
 import { HiOutlineLogout } from "react-icons/hi";
-import { BiTransfer } from "react-icons/bi";
+import { SiGoogleclassroom } from "react-icons/si";
 
 const Sidebar = () => {
   return (
@@ -18,7 +16,7 @@ const Sidebar = () => {
         <ul className={style["admin-main-ul"]}>
           <li>
             <NavLink
-              to={"/admin/dashboard"}
+              to={"/teacher/dashboard"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
@@ -29,31 +27,22 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to={"/admin/member"}
+              to={"/teacher/hosted-class"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
-                <BiTransfer />
+                <SiGoogleclassroom />
               </i>
-              Member
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/admin/classes"}
-              className={(navData) => (navData.isActive ? style.active : "")}
-            >
-              <i>
-                <BiTransfer />
-              </i>
-              Class
+              Hosted Class
             </NavLink>
           </li>
         </ul>
       </nav>
       <div className={style["logout"]}>
         <i>
-          <HiOutlineLogout />
+          <abbr title="Logout">
+            <HiOutlineLogout />
+          </abbr>
         </i>
       </div>
     </div>

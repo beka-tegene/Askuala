@@ -129,7 +129,7 @@ const DashboardStudent = () => {
                 <div className={style.announce} key={index}>
                   <h4>{item.title}</h4>
                   <h5>{item.name}</h5>
-                  <h6>{item.role}</h6>
+                  {/* <h6>{item.role}</h6> */}
                   <h6>{item.date}</h6>
                 </div>
               ))}

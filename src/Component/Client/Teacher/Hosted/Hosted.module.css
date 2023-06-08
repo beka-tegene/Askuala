@@ -1,0 +1,58 @@
+.container {
+  padding: 0 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+}
+.cards {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.card {
+  flex: 1 1 23rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #5f6171;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: inset 0px 5px 5px #a4a7b9;
+}
+.head {
+  text-align: right;
+}
+.head i {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 18px;
+}
+.info {
+  display: flex;
+  gap: 0.5rem;
+}
+.info h5 {
+  color: #acacac;
+}
+.menu {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-color: #ffffff;
+  padding: 0.3rem 0;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.menu a {
+  color: #272727;
+  padding: 0.3rem;
+}
+.menu a:hover {
+  background-color: #a4a7b9;
+  color: #ffffff;
+}
