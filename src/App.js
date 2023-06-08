@@ -12,6 +12,7 @@ import DashboardTeacher from "./Page/Client/Teacher/DashboardTeacher";
 import HostedClass from "./Page/Client/Teacher/HostedClass";
 import ClassAnnouncement from "./Page/Client/Teacher/ClassAnnouncement";
 import Answer from "./Page/Client/Student/Answer";
+import DashboardSuperVisor from "./Page/Client/SuperVisor/DashboardSuperVisor";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
       <Route path="/teacher/dashboard" element={<DashboardTeacher />} />
       <Route path="/teacher/hosted-class" element={<HostedClass />} />
       <Route path="/teacher/announcement/:_id" element={<ClassAnnouncement />} />
+
+      <Route path="/supervisor/dashboard" element={<DashboardSuperVisor />} />
 
       <Route path="/admin/dashboard" element={<DashboardAdmin />} />
       <Route path="/admin/transaction" element={<TransactionAdmin />} />
