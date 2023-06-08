@@ -1,7 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
-import style from "./Transaction.module.css";
-function Transaction() {
+import style from './Member.module.css'
+const StudentMember = () => {
   const columns = [
     {
       name: "Name",
@@ -102,17 +102,18 @@ function Transaction() {
         },
       },
   };
-
   return (
-    <div className={style.transactions}>
+    <div className={style.container}>
       <DataTable
-        data={data}
         columns={columns}
-        customStyles={customStyle}
+        data={data}
+        // selectableRows
+        fixedHeader
         pagination
-      /> 
+        customStyles={customStyle}
+      />
     </div>
   );
-}
+};
 
-export default Transaction;
+export default StudentMember;

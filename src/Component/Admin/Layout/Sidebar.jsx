@@ -29,7 +29,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to={"/admin/transaction"}
+              to={"/admin/member"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
@@ -40,7 +40,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to={"/admin/transaction"}
+              to={"/admin/classes"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>

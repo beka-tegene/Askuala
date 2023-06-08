@@ -1,5 +1,123 @@
-.container{
-    padding: 0 2% 0 14rem;
+.container {
+  padding: 0 2% 0 14rem;
   display: flex;
   flex-direction: column;
+}
+.head {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /* border: 1px solid; */
+  width: 80%;
+  padding: 1rem;
+  background-color: #5f6171;
+  box-shadow: 0px 0px 5px #a4a7b9, 0px 0px 5px #a4a7b9,
+    inset 0px 5px 9px #a4a7b9;
+
+  border-radius: 10px;
+}
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.user {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #96abff;
+  border-left: 5px solid #ffffff;
+  /* box-shadow: 0px 0px 5px #cad5ff, 0px 0px 5px #cad5ff,
+      inset 0px 0px 9px #cad5ff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user img {
+  width: 90%;
+  border-radius: 50%;
+}
+.right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.average h1,
+.attendance h1,
+.grade h1 {
+  color: #96abff;
+  filter: hue-rotate(288deg);
+}
+
+.information h2 {
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
+.information h5 {
+  color: #d7d7d7;
+  font-size: 9px;
+  text-transform: uppercase;
+  /* padding: .4rem 0; */
+}
+.right h5 {
+  color: #d7d7d7;
+  font-size: 12px;
+  padding: 0.4rem 0;
+}
+.cards{
+  border: 1px solid #2727272c;
+  width: 100%;
+  border-radius: 5px;
+  /* height: 84vh; */
+  box-shadow: -1px -1px 5px #97979749;
+}
+.cards hr{
+  background-color: #c7c7c7;
+  width: 100%;
+  height: 1px;
+  border: none;
+
+}
+.cardHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+.add{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .3rem 2rem;
+  background-color: #efefef;
+}
+.add i{
+  font-size: 32px;
+  cursor: pointer;
+}
+.Action-container{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.Action-edit{
+  color: #3c3cb2;
+  font-size: 16px;
+}
+.Action-delete{
+  color: #e45656;
+  font-size: 16px;
 }

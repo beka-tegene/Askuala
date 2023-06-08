@@ -20,7 +20,7 @@ const Sidebar = () => {
         <ul className={style["admin-main-ul"]}>
           <li>
             <NavLink
-              to={"/student/dashboard"}
+              to={"/supervisor/dashboard"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
@@ -31,29 +31,40 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to={"/student/my-class"}
+              to={"/supervisor/teachers"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
                 <SiGoogleclassroom />
               </i>
-              My Class
+              Teachers
             </NavLink>
           </li>
           <li>
             <NavLink
-              to={"/student/Available-class"}
+              to={"/supervisor/students"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
                 <MdOutlineEventAvailable />
               </i>
-              Available Class
+              Student
             </NavLink>
           </li>
           <li>
             <NavLink
-              to={"/student/question-answer"}
+              to={"/supervisor/classes"}
+              className={(navData) => (navData.isActive ? style.active : "")}
+            >
+              <i>
+                <SiGoogleclassroom />
+              </i>
+              Classes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/supervisor/question-answer"}
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>

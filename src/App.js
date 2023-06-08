@@ -13,6 +13,11 @@ import HostedClass from "./Page/Client/Teacher/HostedClass";
 import ClassAnnouncement from "./Page/Client/Teacher/ClassAnnouncement";
 import Answer from "./Page/Client/Student/Answer";
 import DashboardSuperVisor from "./Page/Client/SuperVisor/DashboardSuperVisor";
+import MemberTeacher from "./Page/Client/SuperVisor/MemberTeacher";
+import MemberStudent from "./Page/Client/SuperVisor/MemberStudent";
+import ClassTeacher from "./Page/Client/SuperVisor/ClassTeacher";
+import AnswerStudent from "./Page/Client/SuperVisor/AnswerStudent";
+import ClassTeachers from "./Page/Admin/ClassTeacher";
 
 function App() {
   return (
@@ -31,9 +36,14 @@ function App() {
       <Route path="/teacher/announcement/:_id" element={<ClassAnnouncement />} />
 
       <Route path="/supervisor/dashboard" element={<DashboardSuperVisor />} />
+      <Route path="/supervisor/teachers" element={<MemberTeacher />} />
+      <Route path="/supervisor/students" element={<MemberStudent />} />
+      <Route path="/supervisor/classes" element={<ClassTeacher />} />
+      <Route path="/supervisor/question-answer" element={<AnswerStudent />} />
 
       <Route path="/admin/dashboard" element={<DashboardAdmin />} />
-      <Route path="/admin/transaction" element={<TransactionAdmin />} />
+      <Route path="/admin/member" element={<TransactionAdmin />} />
+      <Route path="/admin/classes" element={<ClassTeachers />} />
 
       <Route element={<NotFound />} path="/*" />
     </Routes>
