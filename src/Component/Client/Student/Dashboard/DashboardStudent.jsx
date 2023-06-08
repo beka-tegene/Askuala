@@ -46,6 +46,8 @@ const DashboardStudent = () => {
   const [todo, setTodo] = useState();
   const [checked, setChecked] = useState();
   const dispatch = useDispatch();
+  const library = useSelector(state => state.Student.lib)
+  console.log(library);
   const todoList = useSelector((state) => state.Student.todo);
   const todoHandler = (e) => {
     setTodo(e.target.value);

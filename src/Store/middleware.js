@@ -1,12 +1,13 @@
-import { call, takeLatest } from "redux-saga/effects";
-import { fetchTodoList, fetchUserLogin, fetchUserRegister } from "./FetchAskuala";
+import { call, takeLatest ,put} from "redux-saga/effects";
+import { fetchBook, fetchTodoList, fetchUserLogin, fetchUserRegister } from "./FetchAskuala";
 import { registerGet } from "./Auth";
-import { studentGet } from "./Student/dashboard";
+import { library, studentGet } from "./Student/dashboard";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
   yield takeLatest("auth/signup", userRegister);
   yield takeLatest("Student/todoLists", TodoList);
+  yield takeLatest("Student/libraryGet", watchLibrary);
 }
 
 function* userLogin(action) {
@@ -21,3 +22,8 @@ function* TodoList(action) {
   yield call(fetchTodoList, action.payload.data);
   yield studentGet();
 }
+function* watchLibrary() {
+  const librarys = yield call(fetchBook);
+  yield put(library(librarys));
+}
+
