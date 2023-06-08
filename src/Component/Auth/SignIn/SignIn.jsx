@@ -12,15 +12,14 @@ const LogIn = () => {
   const [formValid, setFormValid] = useState(false);
   useEffect(() => {
     setFormValid(
-      emailHandle.includes("@") &&
-        emailHandle.includes(".") &&
+      emailHandle.includes("/") &&
         emailHandle.trim().length > 7 &&
         passwordHandle.trim().length > 7
     );
   }, [emailHandle, passwordHandle]);
 
   const ValidationEmailHandler = () => {
-    setEmailValid(emailHandle.includes("@") && emailHandle.includes("."));
+    setEmailValid(emailHandle.includes("/"));
   };
   const ValidationPasswordHandler = () => {
     setPasswordValid(passwordHandle.trim().length > 7);
@@ -50,9 +49,9 @@ const LogIn = () => {
               emailValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="username">E-mail</label>
+            <label htmlFor="username">ID</label>
             <input
-              type={"email"}
+              type={"text"}
               id="userName"
               autoComplete={"off"}
               value={emailHandle}
@@ -64,7 +63,7 @@ const LogIn = () => {
             {emailValid === false && (
               <>
                 <span>
-                  * please include an '@' and '.' in the email address
+                  * please include an '/'  in the ID address
                 </span>
               </>
             )}
