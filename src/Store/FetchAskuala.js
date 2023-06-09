@@ -6,18 +6,19 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "Student") {
+  console.log(useData);
+  if (useData.data.role === "student") {
     window.location.href = "/student/dashboard";
-  }else if (useData.data.role === "Teacher") {
+  }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
-  }else if (useData.data.role === "Supervisor") {
+  }else if (useData.data.role === "supervisor") {
     window.location.href = "/supervisor/dashboard";
-  }else if (useData.data.role === "Admin") {
+  }else if (useData.data.role === "admin") {
     window.location.href = "/admin/dashboard";
   }
   window.localStorage.setItem("token", useData.data.data);
   window.localStorage.setItem("id", useData.data.id);
-  window.localStorage.setItem("gender", useData.data.role);
+  window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
   window.localStorage.setItem("userName", useData.data.fullName);
 };
@@ -58,6 +59,7 @@ export const storeCourse = async (data) => {
 
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.location.href = "/supervisor/dashboard"
   }
 };
 

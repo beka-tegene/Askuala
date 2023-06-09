@@ -1,15 +1,17 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import {  fetchTodoList, fetchUserLogin, fetchUserRegister, storeTodoList } from "./FetchAskuala";
+import {  fetchAnnouncement, fetchBook, fetchTodoList, fetchUserLogin, fetchUserRegister, storeCourse, storeTodoList } from "./FetchAskuala";
 import { registerGet } from "./Auth";
-import {   getTodos, setTodoList } from "./Student/dashboard";
+import {   getAnnouncement, getLibraryBook, getTodos, setTodoList } from "./Student/dashboard";
+import { setCreateCourse } from "./supervisor/dashboard";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
   yield takeLatest("auth/signup", userRegister);
   yield takeLatest("student/setTodo", todoList);
   yield takeLatest("student/getTodoLists", todoFetch);
-  // yield takeLatest("student/libraryGet", bookLibrary);
-  // yield takeLatest("student/announcementGet", classAnnouncement);
+  yield takeLatest("student/getLibrary", bookLibrary);
+  yield takeLatest("student/getAnnounce", classAnnouncement);
+  yield takeLatest("supervisor/setCourse", createCourse);
 }
 
 function* userLogin(action) {
@@ -28,12 +30,15 @@ function* todoFetch() {
   const todo = yield call(fetchTodoList);
   yield put(getTodos(todo));
 }
-// function* bookLibrary() {
-//   const library = yield call(fetchBook);
-//   yield put(studentLibrary(library));
-// }
-// function* classAnnouncement() {
-//   const announcement = yield call(fetchAnnouncement);
-//   yield put(studentAnnouncement(announcement));
-// }
-
+function* bookLibrary() {
+  const books = yield call(fetchBook);
+  yield put(getLibraryBook(books));
+}
+function* classAnnouncement() {
+  const announcement = yield call(fetchAnnouncement);
+  yield put(getAnnouncement(announcement));
+}
+function* createCourse(action) {
+  yield call(storeCourse, action.payload.data);
+  yield setCreateCourse();
+}
