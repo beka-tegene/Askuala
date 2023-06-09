@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import style from "./DashboardStudent.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { todoLists } from "../../../../Store/Student/dashboard";
+import { setTodo } from "../../../../Store/Student/dashboard";
+import { useDispatch } from "react-redux";
 const DUMMY_DATA = [
   {
     title: "operating system",
@@ -42,25 +42,22 @@ const DUMMY_ANNOUNCE = [
     date: "12:00",
   },
 ];
-const DashboardStudent = () => {
-  const [todo, setTodo] = useState();
+const DashboardStudent = (props) => {
+  const [getTodo, setGetTodo] = useState();
   const [checked, setChecked] = useState();
-  const dispatch = useDispatch();
-  const library = useSelector(state => state.Student.lib)
-  console.log(library);
-  const todoList = useSelector((state) => state.Student.todo);
+  const dispatch = useDispatch()
   const todoHandler = (e) => {
-    setTodo(e.target.value);
+    setGetTodo(e.target.value);
   };
   const submitHandler = (e) => {
     e.preventDefault();
     // setTodoList((prev) => [...prev, todo]);
     dispatch(
-      todoLists({
-        data: todo,
+      setTodo({
+        data: getTodo,
       })
     );
-    setTodo("");
+    setGetTodo("");
   };
 
   return (
@@ -149,11 +146,11 @@ const DashboardStudent = () => {
           <h4>TO DO List</h4>
           <div className={style.todo}>
             <form action="" onSubmit={submitHandler}>
-              <input type="text" onChange={todoHandler} value={todo} />
+              <input type="text" onChange={todoHandler} value={getTodo} />
               <button>+</button>
             </form>
           </div>
-          {todoList.map((item, index) => (
+          {props.DUMMY.map((item, index) => (
             <div className={style.list} key={index}>
               <input
                 type="checkbox"
@@ -161,7 +158,7 @@ const DashboardStudent = () => {
                 id="checkbox"
                 onChange={(e) => setChecked(e.target.checked)}
               />
-              <h4 className={`${checked && style.input}`}>{item.inputTodo}</h4>
+              <h4 className={`${checked && style.input}`}>{item.todo}</h4>
             </div>
           ))}
         </div>
