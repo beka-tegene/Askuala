@@ -70,6 +70,25 @@ export const storeAnnouncement = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
+  
+
+
+  console.log(useData);
+  if (useData.data.status === 'ok') {
+    // window.location.href = "/login"; redirect it to where ever you want 
+  }
+};
+
+
+
+export const storequestion = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/storequestion", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  
 
   console.log(useData);
   if (useData.data.status === "ok") {
@@ -118,6 +137,14 @@ export const fetchClass = async () => {
   console.log(useData);
   return useData.data;
 };
+
+export const fetchCourse = async () => {
+  console.log("fetch Course");
+  const useData = await axios.get("http://localhost:5000/fetchCourse");
+  console.log(useData);
+  return useData.data
+};
+
 
 export const fetchAnnouncement = async () => {
   console.log("announcement page");
