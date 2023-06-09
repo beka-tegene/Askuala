@@ -23,16 +23,15 @@ export const fetchUserLogin = async (data) => {
 };
 
 export const fetchUserRegister = async (data) => {
-  console.log(data);
   const useData = await axios.post("http://localhost:5000/register", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
-
-  console.log(useData);
   if (useData.data.status === "ok") {
     window.location.href = "/login";
+  }else{
+    window.location.href = "/register"
   }
 };
 
@@ -90,7 +89,7 @@ export const storeClass = async (data) => {
   }
 };
 
-export const fetchTodoList = async (data) => {
+export const storeTodoList = async (data) => {
   console.log(data);
   const TodoList = await axios.post("http://localhost:5000/storeTodo", {
     data,
@@ -104,9 +103,10 @@ export const fetchTodoList = async (data) => {
 };
 
 export const fetchBook = async () => {
-  console.log("gsdsdgd");
+  console.log("F");
   const useData = await axios.get("http://localhost:5000/fetchbook");
   console.log(useData);
+  console.log("rrr");
   return useData.data;
 };
 
@@ -123,7 +123,7 @@ export const fetchAnnouncement = async () => {
   console.log(useData);
   return useData.data;
 };
-export const getTodoList = async () => {
+export const fetchTodoList = async () => {
   console.log("todolist page");
   const useData = await axios.get("http://localhost:5000/fetchTodo");
   console.log(useData);

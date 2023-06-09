@@ -1,28 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  todo: [],
-  lib: [],
+  todoSet: [],
+  todoGet: [],
+  book: [],
+  getAnnouncement: [],
 };
 
-const Students = createSlice({
-  name: "Student",
+const students = createSlice({
+  name: "student",
   initialState: initialState,
   reducers: {
-    studentGet(state) { },
-    todoLists(state, action) {
-      const newData = action.payload.data;
-      state.todo.push({
+    setTodoList(state) {},
+    setTodo(state, action) {
+      const newData = action.payload;
+      state.todoSet.push({
         inputTodo: newData,
       });
     },
-    libraryGet(state) { },
-    library(state, action) {
-      state.lib = action.payload;
+    getTodoLists(state) {},
+    getTodos(state, action) {
+      state.todoSet = action.payload;
+    },
+    libraryGet(state) {},
+    studentLibrary(state, action) {
+      state.book = action.payload;
+    },
+    announcementGet(state) {},
+    studentAnnouncement(state, action) {
+      state.getAnnouncement = action.payload;
     },
   },
 });
 
-export const { todoLists, studentGet, library ,libraryGet } = Students.actions;
+export const {
+  setTodoList,
+  setTodo,
+  getTodoLists,
+  getTodos,
+  studentLibrary,
+  libraryGet,
+  announcementGet,
+  studentAnnouncement,
+} = students.actions;
 
-export default Students.reducer;
+export default students.reducer;
