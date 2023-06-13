@@ -217,6 +217,8 @@
   box-shadow: 0px 2px 5px #cad5ff;
   padding: 1rem;
   border-radius: 10px;
+  background-color: #f5f5f5;
+
 }
 .chartHead{
   display: flex;
@@ -235,16 +237,20 @@
 .announce{
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: .1rem;
   padding: 0 .5rem ;
   border-radius: 10px;
   cursor: pointer;
+  background-color: #ffffff;
   /* align-items: flex-start; */
   /* justify-content: flex-start; */
 }
 .announce:hover{
   background-color: #f5f5f5;
-  
+}
+.announce p{
+  font-size: 15px;
+  color: #5678ff;
 }
 .announce h5, .announce h6{
   text-align: right;

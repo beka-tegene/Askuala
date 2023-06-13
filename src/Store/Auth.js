@@ -19,9 +19,13 @@ const auth = createSlice({
     signup(state , action) {
       const newData = action.payload.data;
       state.InputRegister.push({
+        id: newData.id,
         FullName: newData.FullName,
         email: newData.email,
+        phoneNumber: newData.phoneNumber,
+        gender: newData.gender,
         role: newData.role,
+        department: newData.department,
         password: newData.password,
         cPassword: newData.cPassword,
       });

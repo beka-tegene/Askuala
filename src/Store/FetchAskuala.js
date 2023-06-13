@@ -6,7 +6,7 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "student") {
+  if (useData.data.role === "Student") {
     window.location.href = "/student/dashboard";
   }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
@@ -17,7 +17,7 @@ export const fetchUserLogin = async (data) => {
   }
   window.localStorage.setItem("token", useData.data.data);
   window.localStorage.setItem("id", useData.data.id);
-  window.localStorage.setItem("gender", useData.data.role);
+  window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
   window.localStorage.setItem("userName", useData.data.fullName);fetchAnswer()
 };
@@ -71,6 +71,7 @@ export const storeCourse = async (data) => {
 
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.location.href = "/supervisor/dashboard"
   }
 };
 

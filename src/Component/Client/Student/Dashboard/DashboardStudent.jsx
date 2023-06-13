@@ -5,44 +5,11 @@ import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
 import { setTodo } from "../../../../Store/Student/dashboard";
 import { useDispatch } from "react-redux";
-const DUMMY_DATA = [
-  {
-    title: "operating system",
-  },
-  {
-    title: "object oriented programming language",
-  },
-  {
-    title: "applied maths one",
-  },
-  {
-    title: "Applied maths two",
-  },
-  {
-    title: "Applied maths three",
-  },
-];
-const DUMMY_ANNOUNCE = [
-  {
-    title: "tomorrow have class",
-    name: "Samuel Biniyam",
-    role: "Teacher",
-    date: "12:00",
-  },
-  {
-    title: "tomorrow have class",
-    name: "Samuel Biniyam",
-    role: "Teacher",
-    date: "12:00",
-  },
-  {
-    title: "tomorrow have class",
-    name: "Samuel Biniyam",
-    role: "Teacher",
-    date: "12:00",
-  },
-];
+
 const DashboardStudent = (props) => {
+  const Username = localStorage.getItem("userName");
+  const department = localStorage.getItem("department");
+  const id = localStorage.getItem("id");
   const [getTodo, setGetTodo] = useState();
   const [checked, setChecked] = useState();
   const dispatch = useDispatch()
@@ -69,9 +36,9 @@ const DashboardStudent = (props) => {
               <img src={user} alt="user" />
             </div>
             <div className={style.information}>
-              <h2>yonatan mekonnen</h2>
-              <h5>Computer science student</h5>
-              <h5>NSR/5320/12</h5>
+              <h2>{Username}</h2>
+              <h5>{department} student</h5>
+              <h5>{id}</h5>
               <br />
               <h5>28 Classmates</h5>
             </div>
@@ -100,14 +67,14 @@ const DashboardStudent = (props) => {
                 <h4>Library</h4>
                 <p></p>
               </div>
-              {DUMMY_DATA.map((item, index) => (
+              {props.Books.map((item, index) => (
                 <div className={style.library} key={index}>
                   <div>
 
                     <i>
                       <RiBook2Fill />
                     </i>
-                    <h5>{item.title}</h5>
+                    <h5>{item.BookName}</h5>
                   </div>
                   <h6>
                     <i>
@@ -122,12 +89,13 @@ const DashboardStudent = (props) => {
                 <h4>Announcement</h4>
                 <p>New</p>
               </div>
-              {DUMMY_ANNOUNCE.map((item, index) => (
+              {props.Announcement.map((item, index) => (
                 <div className={style.announce} key={index}>
-                  <h4>{item.title}</h4>
-                  <h5>{item.name}</h5>
+                  <h4>{item.Announcement}</h4>
+                  <p>{item.ClassLink}</p>
+                  <h5>{item.AnonouncerName}</h5>
                   {/* <h6>{item.role}</h6> */}
-                  <h6>{item.date}</h6>
+                  <h6>{item.Time}</h6>
                 </div>
               ))}
             </div>

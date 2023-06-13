@@ -4,7 +4,7 @@ const initialState = {
   todoSet: [],
   todoGet: [],
   book: [],
-  getAnnouncement: [],
+  announcement: [],
 };
 
 const students = createSlice({
@@ -22,13 +22,13 @@ const students = createSlice({
     getTodos(state, action) {
       state.todoSet = action.payload;
     },
-    libraryGet(state) {},
-    studentLibrary(state, action) {
+    getLibrary(state) {},
+    getLibraryBook(state, action) {
       state.book = action.payload;
     },
-    announcementGet(state) {},
-    studentAnnouncement(state, action) {
-      state.getAnnouncement = action.payload;
+    getAnnounce(state) {},
+    getAnnouncement(state, action) {
+      state.announcement = action.payload;
     },
   },
 });
@@ -38,10 +38,10 @@ export const {
   setTodo,
   getTodoLists,
   getTodos,
-  studentLibrary,
-  libraryGet,
-  announcementGet,
-  studentAnnouncement,
+  getLibrary,
+  getLibraryBook,
+  getAnnounce,
+  getAnnouncement,
 } = students.actions;
 
 export default students.reducer;
