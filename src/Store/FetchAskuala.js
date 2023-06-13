@@ -6,20 +6,20 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "Student") {
+  if (useData.data.role === "student") {
     window.location.href = "/student/dashboard";
-  }else if (useData.data.role === "Teacher") {
+  }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
-  }else if (useData.data.role === "Supervisor") {
+  }else if (useData.data.role === "supervisor") {
     window.location.href = "/supervisor/dashboard";
-  }else if (useData.data.role === "Admin") {
+  }else if (useData.data.role === "admin") {
     window.location.href = "/admin/dashboard";
   }
   window.localStorage.setItem("token", useData.data.data);
   window.localStorage.setItem("id", useData.data.id);
   window.localStorage.setItem("gender", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
-  window.localStorage.setItem("userName", useData.data.fullName);
+  window.localStorage.setItem("userName", useData.data.fullName);fetchAnswer()
 };
 
 export const fetchUserRegister = async (data) => {
@@ -36,6 +36,19 @@ export const fetchUserRegister = async (data) => {
 };
 
 export const storebook = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/storebook", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  console.log(useData);
+  if (useData.data.status === "ok") {
+  }
+};
+
+export const storeAnswers = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
@@ -153,6 +166,18 @@ export const fetchAnnouncement = async () => {
 export const fetchTodoList = async () => {
   console.log("todolist page");
   const useData = await axios.get("http://localhost:5000/fetchTodo");
+  console.log(useData);
+  return useData.data;
+};
+export const fetchAnswer = async () => {
+  console.log("Answer page");
+  const useData = await axios.get("http://localhost:5000/fetchAnswer");
+  console.log("the answer is",useData);
+  return useData.data.Answer;
+};
+export const fetchQuestion = async () => {
+  console.log("Answer page");
+  const useData = await axios.get("http://localhost:5000/fetchQuestion");
   console.log(useData);
   return useData.data;
 };
