@@ -7,7 +7,10 @@ const initialState = {
   announcement: [],
   question: [],
   getQuestions: [],
-  answer: [],
+  answers: [],
+  getAnswers: [],
+  joinClass:[],
+  join:[],
 };
 
 const students = createSlice({
@@ -49,20 +52,33 @@ const students = createSlice({
     setAnswer(state) {},
     setAnswerQuestion(state, action) {
       const newData = action.payload;
-      state.question.push({
-        question: newData.question,
+      state.answers.push({
+        answer: newData.answer,
         id: newData.id,
         Username: newData.Username,
       });
     },
     getAnswer(state) {},
     getAnswerQuestion(state, action) {
-      state.getQuestions = action.payload;
+      state.getAnswers = action.payload.data;
+    },
+
+    setJoin(state) {},
+    setJoinClass(state, action) {
+      const newData = action.payload;
+      state.join.push({
+        Username: newData.Username,
+        department: newData.department,
+        id: newData.id,
+        lectureId: newData.lectureId,
+        courseId: newData.courseId,
+      });
     },
   },
 });
 
 export const {
+  setJoin,setJoinClass,
   setTodoList,
   setTodo,
   getTodoLists,

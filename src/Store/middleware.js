@@ -1,6 +1,7 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import {
   fetchAnnouncement,
+  fetchAnswer,
   fetchBook,
   fetchClass,
   fetchCourse,
@@ -18,10 +19,12 @@ import {
 import { registerGet } from "./Auth";
 import {
   getAnnouncement,
+  getAnswerQuestion,
   getLibraryBook,
   getQuestionAnswer,
   getTodos,
   setAnswer,
+  setJoin,
   setQuestion,
   setTodoList,
 } from "./Student/dashboard";
@@ -43,7 +46,9 @@ export function* watchFetchAskuala() {
   yield takeLatest("student/setQuestionAnswer", createQuestion);
   yield takeLatest("student/getQuestion", getQuestionCreate);
   yield takeLatest("student/setAnswerQuestion", createAnswer);
-  // yield takeLatest("student/getQuestion", getQuestionCreate);
+  yield takeLatest("student/getAnswer", getAnswerCreate);
+  yield takeLatest("student/setJoinClass", StudentJoinClass);
+  // yield takeLatest("student/getAnswer", getAnswerCreate);
 }
 
 function* userLogin(action) {
@@ -102,7 +107,11 @@ function* createAnswer(action) {
   yield call(storeAnswers, action.payload.data);
   yield setAnswer();
 }
-// function* getQuestionCreate() {
-//   const question = yield call(fetchQuestion);
-//   yield put(getQuestionAnswer(question));
-// }
+function* getAnswerCreate() {
+  const answer = yield call(fetchAnswer);
+  yield put(getAnswerQuestion(answer));
+}
+function* StudentJoinClass(action) {
+  yield call(storeAnswers, action.payload.data);
+  yield setJoin();
+}

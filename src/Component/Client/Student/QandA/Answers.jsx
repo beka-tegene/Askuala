@@ -10,66 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import striptags from "striptags";
 import moment from "moment";
 const Answers = (props) => {
-    const { id } = useParams();
-    const dispatch = useDispatch()
-    const question = useSelector((state) => state.student.getQuestions);
-    const filterQuestion = question.filter((item) => item._id === id);
-    useEffect(() => {
-      dispatch(getQuestion());
-    }, [dispatch]);
-  // const DUMMY_DATA = [
-  //   {
-  //     _id: 31242343242342343423,
-  //     name: "yonatan mekonnen",
-  //     department: "computer science",
-  //     question:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-  //     timer: "1 hour ago",
-  //     answer: 8,
-  //   },
-  // ];
-  const DUMMY_ANSWER = [
-    {
-      _id: 31242343242342343423,
-      name: "yonatan mekonnen",
-      department: "computer science",
-      question:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-      timer: "1 hour ago",
-    },
-    {
-      _id: 423432432432,
-      name: "yonatan mekonnen",
-      department: "computer science",
-      question:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-      timer: "1 hour ago",
-    },
-    {
-      _id: 3434546547665767,
-      name: "yonatan mekonnen",
-      department: "computer science",
-      question:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-      timer: "1 hour ago",
-    },
-    {
-      _id: 325235332353253535,
-      name: "yonatan mekonnen",
-      department: "computer science",
-      question:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-      timer: "1 hour ago",
-    },
-    {
-      _id: 3425465566879657574575,
-      name: "yonatan mekonnen",
-      department: "computer science",
-      question:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic, perspiciatis soluta suscipit, recusandae saepe dolorum quibusdam deserunt et atque asperiores labore.",
-      timer: "1 hour ago",
-    },
-  ];
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const question = useSelector((state) => state.student.getQuestions);
+  const filterQuestion = question.filter((item) => item._id === id);
+  useEffect(() => {
+    dispatch(getQuestion());
+  }, [dispatch]);
+
+  const filterAnswer = filterQuestion?.map((item) => item.Answer);
+
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -82,7 +32,7 @@ const Answers = (props) => {
         <button onClick={props.onClick}>Answers</button>
       </div>
       <div className={style.cards}>
-        {filterQuestion.map((item, index) => (
+        {filterQuestion?.map((item, index) => (
           <>
             <div className={style.counter}>1</div>
             <div className={style.card} key={index}>
@@ -99,24 +49,22 @@ const Answers = (props) => {
         ))}
       </div>
       {/* <h3>Answers</h3> */}
-      <div className={style.answerCards}>
-        {DUMMY_ANSWER.map((item, index) => (
-          <>
+      {filterAnswer[0]?.map((item, index) => (
+        <div className={style.answerCards}>
             <div className={style.answerCounter}>
               <SiAnswer />
             </div>
             <div className={style.answerCard} key={index}>
               <div className={style.headAnswerCard}>
-                <p>student {item.name}</p>
+                <p>student {item.Name}</p>
                 {/* <p>{item.department}</p> */}
               </div>
-              <h3>{item.question}</h3>
-              <h6>{item.timer}</h6>
+              <h3>{striptags(item.Answer)}</h3>
+              <h6>{moment(item.createdAt).fromNow()}</h6>
               <hr />
             </div>
-          </>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
