@@ -170,6 +170,16 @@ export const fetchAnswer = async (data) => {
   console.log("the answer is",useData.data[0].Answer);
   return useData.data.Answer;
 };
+export const fetchUsers = async (data) => {
+
+  console.log("users page");
+  const useData = await axios.post("http://localhost:5000/fetchUsers",{
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  return useData.data;
+};
 export const fetchQuestion = async () => {
   console.log("question  page");
   const useData = await axios.get("http://localhost:5000/fetchQuestion");
