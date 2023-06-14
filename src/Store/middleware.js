@@ -13,6 +13,7 @@ import {
   storeAnswers,
   storeClass,
   storeCourse,
+  storeJoin,
   storeTodoList,
   storequestion,
 } from "./FetchAskuala";
@@ -112,6 +113,6 @@ function* getAnswerCreate() {
   yield put(getAnswerQuestion(answer));
 }
 function* StudentJoinClass(action) {
-  yield call(storeAnswers, action.payload.data);
+  yield call(storeJoin, action.payload.data);
   yield setJoin();
 }

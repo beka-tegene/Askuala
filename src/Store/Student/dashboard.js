@@ -70,8 +70,8 @@ const students = createSlice({
         Username: newData.Username,
         department: newData.department,
         id: newData.id,
-        lectureId: newData.lectureId,
-        courseId: newData.courseId,
+        lectureID: newData.lectureID,
+        _id: newData._id,
       });
     },
   },

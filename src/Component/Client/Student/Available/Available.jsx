@@ -27,11 +27,11 @@ const Available = () => {
   const ContinueHandler = () => {
     setJoinData(false);
   };
-  const joinClassHandler = (CourseId, lectureID) => {
+  const joinClassHandler = (_id, lectureID) => {
     dispatch(
       setJoinClass({
         data: {
-          CourseId,
+          _id,
           lectureID,
           id,
           Username,
@@ -94,7 +94,7 @@ const Available = () => {
                     <button onClick={() => ContinueHandler()}>Cancel</button>
                     <button
                       onClick={() =>
-                        joinClassHandler(item.CourseId, item.lectureID)
+                        joinClassHandler(item._id, item.lectureID)
                       }
                     >
                       Continue

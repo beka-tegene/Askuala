@@ -36,31 +36,28 @@ const ClassDetail = (props) => {
         <div className={style.left}>
           <div className={style.info}>
             <h5>Class ID :-</h5>
-            <h4>{props.data.classID}</h4>
+            <h4>{props.data.CourseId}</h4>
           </div>
           <div className={style.info}>
             <h5>Class Name :-</h5>
-            <h4>{props.data.className}</h4>
+            <h4>{props.data.CourseName}</h4>
           </div>
           <div className={style.info}>
             <h5>Lecture :-</h5>
-            <h4>{props.data.lecture}</h4>
+            <h4>{props.data.lectureID}</h4>
           </div>
           <div className={style.info}>
             <h5>ECTS :-</h5>
-            <h4>{props.data.ECTS} ECTS</h4>
+            <h4>{props.data.Ects} ECTS</h4>
           </div>
           <div className={style.info}>
             <h5>Credit Hours :-</h5>
-            <h4>{props.data.creditHours} hours</h4>
+            <h4>{props.data.CreaditHour} hours</h4>
           </div>
           <div className={style.info}>
             <h5>Description </h5>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eum
-              sapiente laudantium voluptates temporibus dicta saepe totam. Esse,
-              repellat corporis, recusandae porro voluptatem amet architecto eum
-              cumque aliquid, voluptate aperiam? hours
+            {props.data.Description}
             </h4>
           </div>
         </div>
