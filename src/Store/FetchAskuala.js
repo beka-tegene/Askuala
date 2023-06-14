@@ -6,8 +6,7 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  console.log(useData);
-  if (useData.data.role === "student") {
+  if (useData.data.role === "Student") {
     window.location.href = "/student/dashboard";
   }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
@@ -20,7 +19,7 @@ export const fetchUserLogin = async (data) => {
   window.localStorage.setItem("id", useData.data.id);
   window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
-  window.localStorage.setItem("userName", useData.data.fullName);
+  window.localStorage.setItem("userName", useData.data.fullName);fetchAnswer()
 };
 
 export const fetchUserRegister = async (data) => {
@@ -37,6 +36,19 @@ export const fetchUserRegister = async (data) => {
 };
 
 export const storeBook = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/storebook", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  console.log(useData);
+  if (useData.data.status === "ok") {
+  }
+};
+
+export const storeAnswers = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
@@ -139,5 +151,17 @@ export const fetchAnnouncement = async () => {
 };
 export const fetchTodoList = async () => {
   const useData = await axios.get("http://localhost:5000/fetchTodo");
+  return useData.data;
+};
+export const fetchAnswer = async () => {
+  console.log("Answer page");
+  const useData = await axios.get("http://localhost:5000/fetchAnswer");
+  console.log("the answer is",useData);
+  return useData.data.Answer;
+};
+export const fetchQuestion = async () => {
+  console.log("Answer page");
+  const useData = await axios.get("http://localhost:5000/fetchQuestion");
+  console.log(useData);
   return useData.data;
 };
