@@ -50,7 +50,7 @@ export const storebook = async (data) => {
 
 export const storeAnswers = async (data) => {
   console.log(data);
-  const useData = await axios.post("http://localhost:5000/store/storeAnswers", {
+  const useData = await axios.post("http://localhost:5000/storeAnswers", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
@@ -173,6 +173,6 @@ export const fetchAnswer = async (data) => {
 export const fetchQuestion = async () => {
   console.log("question  page");
   const useData = await axios.get("http://localhost:5000/fetchQuestion");
-  console.log(useData);
+  console.log(useData.data);
   return useData.data;
 };

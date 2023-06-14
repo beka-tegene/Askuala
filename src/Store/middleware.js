@@ -4,19 +4,25 @@ import {
   fetchBook,
   fetchClass,
   fetchCourse,
+  fetchQuestion,
   fetchTodoList,
   fetchUserLogin,
   fetchUserRegister,
   storeAnnouncement,
+  storeAnswers,
   storeClass,
   storeCourse,
   storeTodoList,
+  storequestion,
 } from "./FetchAskuala";
 import { registerGet } from "./Auth";
 import {
   getAnnouncement,
   getLibraryBook,
+  getQuestionAnswer,
   getTodos,
+  setAnswer,
+  setQuestion,
   setTodoList,
 } from "./Student/dashboard";
 import { getCourse, setCreateCourse } from "./supervisor/dashboard";
@@ -34,6 +40,10 @@ export function* watchFetchAskuala() {
   yield takeLatest("teacher/setClass", createClass);
   yield takeLatest("teacher/getCreateClass", getClassCreate);
   yield takeLatest("teacher/setAnnouncement", createAnnouncement);
+  yield takeLatest("student/setQuestionAnswer", createQuestion);
+  yield takeLatest("student/getQuestion", getQuestionCreate);
+  yield takeLatest("student/setAnswerQuestion", createAnswer);
+  // yield takeLatest("student/getQuestion", getQuestionCreate);
 }
 
 function* userLogin(action) {
@@ -80,3 +90,19 @@ function* getClassCreate() {
   const classes = yield call(fetchClass);
   yield put(getClass(classes));
 }
+function* createQuestion(action) {
+  yield call(storequestion, action.payload.data);
+  yield setQuestion();
+}
+function* getQuestionCreate() {
+  const question = yield call(fetchQuestion);
+  yield put(getQuestionAnswer(question));
+}
+function* createAnswer(action) {
+  yield call(storeAnswers, action.payload.data);
+  yield setAnswer();
+}
+// function* getQuestionCreate() {
+//   const question = yield call(fetchQuestion);
+//   yield put(getQuestionAnswer(question));
+// }
