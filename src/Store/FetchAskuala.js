@@ -6,7 +6,7 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "Student") {
+  if (useData.data.role === "student") {
     window.location.href = "/student/dashboard";
   }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
@@ -19,7 +19,7 @@ export const fetchUserLogin = async (data) => {
   window.localStorage.setItem("id", useData.data.id);
   window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
-  window.localStorage.setItem("userName", useData.data.fullName);fetchAnswer()
+  window.localStorage.setItem("userName", useData.data.fullName);
 };
 
 export const fetchUserRegister = async (data) => {
@@ -50,7 +50,7 @@ export const storebook = async (data) => {
 
 export const storeAnswers = async (data) => {
   console.log(data);
-  const useData = await axios.post("http://localhost:5000/storebook", {
+  const useData = await axios.post("http://localhost:5000/store/storeAnswers", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
@@ -170,14 +170,19 @@ export const fetchTodoList = async () => {
   console.log(useData);
   return useData.data;
 };
-export const fetchAnswer = async () => {
+export const fetchAnswer = async (data) => {
+  alert("das")
   console.log("Answer page");
-  const useData = await axios.get("http://localhost:5000/fetchAnswer");
-  console.log("the answer is",useData);
+  const useData = await axios.post("http://localhost:5000/fetchAnswer",{
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  console.log("the answer is",useData.data[0].Answer);
   return useData.data.Answer;
 };
 export const fetchQuestion = async () => {
-  console.log("Answer page");
+  console.log("question  page");
   const useData = await axios.get("http://localhost:5000/fetchQuestion");
   console.log(useData);
   return useData.data;
