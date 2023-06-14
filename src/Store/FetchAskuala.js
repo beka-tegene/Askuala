@@ -6,7 +6,7 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "Student") {
+  if (useData.data.role === "student") {
     window.location.href = "/student/dashboard";
   }else if (useData.data.role === "teacher") {
     window.location.href = "/teacher/dashboard";
@@ -19,7 +19,8 @@ export const fetchUserLogin = async (data) => {
   window.localStorage.setItem("id", useData.data.id);
   window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
-  window.localStorage.setItem("userName", useData.data.fullName);fetchAnswer()
+  window.localStorage.setItem("userName", useData.data.fullName);
+  fetchAnswer()
 };
 
 export const fetchUserRegister = async (data) => {
@@ -62,14 +63,11 @@ export const storeAnswers = async (data) => {
 };
 
 export const storeCourse = async (data) => {
-  console.log(data);
   const useData = await axios.post("http://localhost:5000/storecourse", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
-
-  console.log(useData);
   if (useData.data.status === "ok") {
     window.location.href = "/supervisor/dashboard"
   }
@@ -81,7 +79,6 @@ export const storeAnnouncement = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  console.log(useData);
   if (useData.data.status === 'ok') {
     window.location.reload(true)
   }
@@ -105,20 +102,17 @@ export const storeQuestion = async (data) => {
 };
 
 export const storeClass = async (data) => {
-  console.log(data);
   const useData = await axios.post("http://localhost:5000/storeClass", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
-  console.log(useData);
   if (useData.data.status === "ok") {
     window.location.href = "/teacher/dashboard"
   }
 };
 
 export const storeTodoList = async (data) => {
-  console.log(data);
   const TodoList = await axios.post("http://localhost:5000/storeTodo", {
     data,
     ContentType: "application/json",
