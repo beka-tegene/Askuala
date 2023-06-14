@@ -20,7 +20,6 @@ export const fetchUserLogin = async (data) => {
   window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
   window.localStorage.setItem("userName", useData.data.fullName);
-  fetchAnswer()
 };
 
 export const fetchUserRegister = async (data) => {
@@ -36,7 +35,7 @@ export const fetchUserRegister = async (data) => {
   }
 };
 
-export const storeBook = async (data) => {
+export const storebook = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
@@ -51,7 +50,7 @@ export const storeBook = async (data) => {
 
 export const storeAnswers = async (data) => {
   console.log(data);
-  const useData = await axios.post("http://localhost:5000/storebook", {
+  const useData = await axios.post("http://localhost:5000/store/storeAnswers", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
@@ -63,30 +62,38 @@ export const storeAnswers = async (data) => {
 };
 
 export const storeCourse = async (data) => {
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/storecourse", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
+
+  console.log(useData);
   if (useData.data.status === "ok") {
     window.location.href = "/supervisor/dashboard"
   }
 };
 
 export const storeAnnouncement = async (data) => {
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/storeannouce", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
+  
+
+
+  console.log(useData);
   if (useData.data.status === 'ok') {
-    window.location.reload(true)
+    // window.location.href = "/login"; redirect it to where ever you want 
   }
 };
 
 
 
-export const storeQuestion = async (data) => {
+export const storequestion = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storequestion", {
     data,
@@ -102,22 +109,27 @@ export const storeQuestion = async (data) => {
 };
 
 export const storeClass = async (data) => {
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/storeClass", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
+
+  console.log(useData);
   if (useData.data.status === "ok") {
-    window.location.href = "/teacher/dashboard"
+    // window.location.href = "/login"; redirect it to where ever you want
   }
 };
 
 export const storeTodoList = async (data) => {
+  console.log(data);
   const TodoList = await axios.post("http://localhost:5000/storeTodo", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
+  console.log(TodoList);
   if (TodoList.data.status === "ok") {
     window.location.href = "/student/dashboard"; 
   }
@@ -147,14 +159,19 @@ export const fetchTodoList = async () => {
   const useData = await axios.get("http://localhost:5000/fetchTodo");
   return useData.data;
 };
-export const fetchAnswer = async () => {
+export const fetchAnswer = async (data) => {
+  alert("das")
   console.log("Answer page");
-  const useData = await axios.get("http://localhost:5000/fetchAnswer");
-  console.log("the answer is",useData);
+  const useData = await axios.post("http://localhost:5000/fetchAnswer",{
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  console.log("the answer is",useData.data[0].Answer);
   return useData.data.Answer;
 };
 export const fetchQuestion = async () => {
-  console.log("Answer page");
+  console.log("question  page");
   const useData = await axios.get("http://localhost:5000/fetchQuestion");
   console.log(useData);
   return useData.data;
