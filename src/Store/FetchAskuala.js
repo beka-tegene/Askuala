@@ -100,8 +100,25 @@ export const storequestion = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
+
+  
   
 
+  console.log(useData);
+  if (useData.data.status === "ok") {
+    // window.location.href = "/login"; redirect it to where ever you want
+  }
+};
+
+
+
+export const storeJoin = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/JoinClass", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
   console.log(useData);
   if (useData.data.status === "ok") {
     // window.location.href = "/login"; redirect it to where ever you want
