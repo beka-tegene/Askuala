@@ -105,6 +105,9 @@
     gap: .5rem;
     width: 15%;
 }
+.card h3{
+  font-size: 13px;
+}
 .card h6{
    text-align: right;
 }

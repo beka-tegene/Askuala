@@ -36,7 +36,7 @@ export const fetchUserRegister = async (data) => {
   }
 };
 
-export const storebook = async (data) => {
+export const storeBook = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
@@ -64,24 +64,20 @@ export const storeCourse = async (data) => {
 };
 
 export const storeAnnouncement = async (data) => {
-  console.log(data);
   const useData = await axios.post("http://localhost:5000/storeannouce", {
     data,
     ContentType: "application/json",
     Accept: "application/json",
   });
-  
-
-
   console.log(useData);
   if (useData.data.status === 'ok') {
-    // window.location.href = "/login"; redirect it to where ever you want 
+    window.location.reload(true)
   }
 };
 
 
 
-export const storequestion = async (data) => {
+export const storeQuestion = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storequestion", {
     data,
@@ -103,10 +99,9 @@ export const storeClass = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-
   console.log(useData);
   if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+    window.location.href = "/teacher/dashboard"
   }
 };
 
@@ -117,44 +112,32 @@ export const storeTodoList = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  console.log(TodoList);
   if (TodoList.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+    window.location.href = "/student/dashboard"; 
   }
 };
 
 export const fetchBook = async () => {
-  console.log("F");
   const useData = await axios.get("http://localhost:5000/fetchbook");
-  console.log(useData);
-  console.log("rrr");
   return useData.data;
 };
 
 export const fetchClass = async () => {
-  console.log("fetch class");
   const useData = await axios.get("http://localhost:5000/fetchclass");
-  console.log(useData);
   return useData.data;
 };
 
 export const fetchCourse = async () => {
-  console.log("fetch Course");
   const useData = await axios.get("http://localhost:5000/fetchCourse");
-  console.log(useData);
-  return useData.data
+  return useData
 };
 
 
 export const fetchAnnouncement = async () => {
-  console.log("announcement page");
   const useData = await axios.get("http://localhost:5000/fetchAnnouncement");
-  console.log(useData);
   return useData.data;
 };
 export const fetchTodoList = async () => {
-  console.log("todolist page");
   const useData = await axios.get("http://localhost:5000/fetchTodo");
-  console.log(useData);
   return useData.data;
 };

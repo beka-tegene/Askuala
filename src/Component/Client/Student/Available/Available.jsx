@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./Available.module.css";
-import { Link } from "react-router-dom";
-import { BsThreeDotsVertical } from "react-icons/bs";
+// import { Link } from "react-router-dom";
+// import { BsThreeDotsVertical } from "react-icons/bs";
 const Available = () => {
   const DUMMY_DATA = [
     {
@@ -40,14 +40,14 @@ const Available = () => {
       creditHours: 2,
     },
   ];
-  const [menuData, setMenuData] = useState(false);
+  // const [menuData, setMenuData] = useState(false);
   const [joinData, setJoinData] = useState(false);
-  const [useData, setUseData] = useState();
+  // const [useData, setUseData] = useState();
   const [useJoin, setUseJoin] = useState();
-  const menuHandler = (index) => {
-    setMenuData(!menuData);
-    setUseData(index);
-  };
+  // const menuHandler = () => {
+  //   setMenuData(!menuData);
+  //   setUseData(index);
+  // };
   const joinHandler = (index) => {
     setJoinData(true);
     setUseJoin(index);
@@ -61,16 +61,16 @@ const Available = () => {
         {DUMMY_DATA.map((item, index) => (
           <>
             <div className={style.card} key={index}>
-              <div className={style.head}>
+              {/* <div className={style.head}>
                 <i onClick={() => menuHandler(index)}>
                   <BsThreeDotsVertical />
                 </i>
-              </div>
-              {menuData && useData === index && (
+              </div> */}
+              {/* {menuData && useData === index && (
                 <div className={style.menu}>
                   <Link>Show Details</Link>
                 </div>
-              )}
+              )} */}
               <div className={style.info}>
                 <h5>Class ID :-</h5>
                 <h4>{item.classID}</h4>

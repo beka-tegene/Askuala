@@ -1,6 +1,6 @@
 .nav-container {
   height: 11vh;
-  background-color: white;
+  background-color: #3B7BBC;
   box-shadow: 1px 1px 5px #0003;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
   font-size: 19px;
 }
 .nav-menu ul li a {
-  color: #000;
+  color: white;
 }
 .nav-right {
   flex: 0.4;

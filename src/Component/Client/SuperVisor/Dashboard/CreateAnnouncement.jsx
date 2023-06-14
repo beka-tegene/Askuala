@@ -3,6 +3,7 @@ import style from "./CreateAnnouncement.module.css";
 import { useDispatch } from "react-redux";
 import { setCourse } from "../../../../Store/supervisor/dashboard";
 const CreateCourse = (props) => {
+  const Username = localStorage.getItem("userName");
   const dispatch = useDispatch();
   const [forms, setForms] = useState({
     courseId: "",
@@ -10,6 +11,7 @@ const CreateCourse = (props) => {
     teacherId: "",
     ETCS: "",
     creditHours: "",
+    courseDept: "",
   });
   const changeHandler = (event) => {
     setForms({
@@ -23,7 +25,9 @@ const CreateCourse = (props) => {
     const courseName = forms.courseName;
     const teacherId = forms.teacherId;
     const ETCS = forms.ETCS;
-    const creditHours = forms.creditHours;
+    const creaditHours = forms.creditHours;
+    const courseDept = forms.courseDept;
+    const CourseCreator = Username;
     dispatch(
       setCourse({
         data: {
@@ -31,7 +35,9 @@ const CreateCourse = (props) => {
           courseName,
           teacherId,
           ETCS,
-          creditHours,
+          creaditHours,
+          courseDept,
+          CourseCreator,
         },
       })
     );
@@ -52,15 +58,15 @@ const CreateCourse = (props) => {
               <input type="text" onChange={changeHandler} id="courseName" />
             </div>
           </div>
-          <div className={style.formControl}>
-            <label htmlFor="">Teachers ID</label>
-            <input
-              type="text"
-              name=""
-              onChange={changeHandler}
-              id="teacherId"
-            />
-          </div>
+
+            <div className={style.formControl}>
+              <label htmlFor="">Teachers ID</label>
+              <input type="text" onChange={changeHandler} id="teacherId" />
+            </div>
+            <div className={style.formControl}>
+              <label htmlFor="">Course Department</label>
+              <input type="text" onChange={changeHandler} id="courseDept" />
+            </div>
           <div className={style.form}>
             <div className={style.formControl}>
               <label htmlFor="">ETCS</label>
@@ -73,7 +79,7 @@ const CreateCourse = (props) => {
           </div>
           <div className={style.btn}>
             <button onClick={() => props.display()}>Cancel</button>
-            <button>Announcement</button>
+            <button>Create</button>
           </div>
         </form>
       </div>
