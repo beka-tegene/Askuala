@@ -26,7 +26,7 @@ const DashboardStudent = (props) => {
     );
     setGetTodo("");
   };
-
+  const limitedData = props.Announcement.slice(0, 4)
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -70,7 +70,6 @@ const DashboardStudent = (props) => {
               {props.Books.map((item, index) => (
                 <div className={style.library} key={index}>
                   <div>
-
                     <i>
                       <RiBook2Fill />
                     </i>
@@ -89,12 +88,11 @@ const DashboardStudent = (props) => {
                 <h4>Announcement</h4>
                 <p>New</p>
               </div>
-              {props.Announcement.map((item, index) => (
+              {limitedData.map((item, index) => (
                 <div className={style.announce} key={index}>
                   <h4>{item.Announcement}</h4>
                   <p>{item.ClassLink}</p>
                   <h5>{item.AnonouncerName}</h5>
-                  {/* <h6>{item.role}</h6> */}
                   <h6>{item.Time}</h6>
                 </div>
               ))}
