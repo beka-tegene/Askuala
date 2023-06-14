@@ -16,11 +16,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #5f6171;
+  background-color: #AECAF2;
   padding: 1rem;
   border-radius: 5px;
   color: #ffffff;
-  box-shadow: inset 0px 5px 5px #a4a7b9;
+  box-shadow: -5px 5px 5px #a4a7b939;
 }
 .head {
   text-align: right;
@@ -35,7 +35,7 @@
   gap: 0.5rem;
 }
 .info h5 {
-  color: #acacac;
+  color: #222c65;
 }
 .menu {
   position: absolute;
@@ -67,13 +67,13 @@
     border: 1px solid #ffffff;
     outline: none;
     cursor: pointer;
-    background-color: #272727;
+    background-color: #2f6296;
     color: #ffffff;
 }
 .btn button:hover{
-    border: 1px solid #272727;
+    border: 1px solid #2f6296;
     background-color: #ffffff;
-    color: #272727;
+    color: #2f6296;
 }
 
 .popUp{
@@ -129,12 +129,12 @@
     color: #ffe1e1;
 }
 .btnLong button:last-child:hover{
-    background-color: #272727;
+    background-color: #2f6296;
     border: 1px solid #ffffff;
     color: #ffffff;
 }
 .btnLong button:last-child{
     background-color: #ffffff;
-    border: 1px solid #272727;
-    color: #272727;
+    border: 1px solid #2f6296;
+    color: #2f6296;
 }

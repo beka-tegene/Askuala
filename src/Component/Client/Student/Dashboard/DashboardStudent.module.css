@@ -18,9 +18,9 @@
   /* border: 1px solid; */
   width: 80%;
   padding: 1rem;
-  background-color: #5f6171;
-  box-shadow: 0px 0px 5px #a4a7b9, 0px 0px 5px #a4a7b9,
-    inset 0px 5px 9px #a4a7b9;
+  background-color: #2f6296;
+  box-shadow: 0px 0px 5px #6e9ecd, 0px 0px 5px #6e9ecd,
+    inset 0px 5px 9px #6e9ecd;
 
   border-radius: 10px;
 }

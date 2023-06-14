@@ -4,28 +4,38 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
 import DataTable from "react-data-table-component";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAnnounce } from "../../../../Store/Student/dashboard";
+import { useParams } from "react-router-dom";
 // import { TfiAnnouncement } from "react-icons/tfi";
-
 const Announcement = (props) => {
+  const {_id} = useParams()
+  const dispatch = useDispatch()
+  const announcement = useSelector((state) => state.student.announcement);
+  useEffect(() => {
+    dispatch(getAnnounce());
+  }, [dispatch]);
+  const filterAnnounce = announcement.filter((item)=> item.ClassId === _id)
   const columns = [
     {
       name: "Announcement",
       selector: (row) => (
         <>
-          {row.title} <br /> {row.message}
+          {row.AnnouncementTitle} <br /> {row.Announcement}
         </>
       ),
       sortable: true,
     },
     {
       name: "Time",
-      selector: (row) => row.time,
+      selector: (row) => row.Time,
       sortable: true,
     },
     {
       name: "Url",
       selector: (row) => (
-        <div onClick={() => window.open(`${row.url}`, "_self")}>{row.url}</div>
+        <div onClick={() => window.open(`${row.ClassLink}`, "_self")}>{row.ClassLink}</div>
       ),
       sortable: true,
     },
@@ -46,29 +56,6 @@ const Announcement = (props) => {
   const deleteHandler = (id) => {
     console.log(id);
   };
-  const data = [
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe ejkfhidahf khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe  khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe ejkfhidahf khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-  ];
   const customStyle = {
     rows: {
       style: {
@@ -100,7 +87,7 @@ const Announcement = (props) => {
         </div>
         <hr />
         <div className={style.add}>
-          <h6>3 Posted</h6>
+          <h6>{filterAnnounce.length} Posted</h6>
           <i onClick={props.onClick}>
             <abbr title="Create Announcement"><MdAddCircleOutline /></abbr>
           </i>
@@ -108,7 +95,7 @@ const Announcement = (props) => {
         <hr />
         <DataTable
           columns={columns}
-          data={data}
+          data={filterAnnounce}
           // selectableRows
           fixedHeader
           pagination

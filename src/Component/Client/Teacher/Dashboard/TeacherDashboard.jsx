@@ -3,33 +3,10 @@ import style from "./TeacherDashboard.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 const TeacherDashboard = (props) => {
-  const DUMMY_DATA = [
-    {
-      className: "Python",
-      student: 22,
-      notification: 3,
-    },
-    {
-      className: "C++",
-      student: 42,
-      notification: 2,
-    },
-    {
-      className: "C++",
-      student: 42,
-      notification: 2,
-    },
-    {
-      className: "C#",
-      student: 35,
-      notification: 3,
-    },
-    {
-      className: "Java Script",
-      student: 33,
-      notification: 7,
-    },
-  ];
+  const Username = localStorage.getItem("userName");
+  const department = localStorage.getItem("department");
+  const id = localStorage.getItem("id");
+  const filterClass = props.classData.filter((item) => item.lectureID === id);
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -39,9 +16,9 @@ const TeacherDashboard = (props) => {
               <img src={user} alt="user" />
             </div>
             <div className={style.information}>
-              <h2>yonatan mekonnen</h2>
-              <h5>Computer science teacher</h5>
-              <h5>NSR/5320/12</h5>
+              <h2>{Username}</h2>
+              <h5>{department} teacher</h5>
+              <h5>{id}</h5>
               <br />
               <h5>4 Classes</h5>
             </div>
@@ -63,9 +40,9 @@ const TeacherDashboard = (props) => {
         </div>
       </div>
       <div className={style.cards}>
-        {DUMMY_DATA.map((item, index) => (
+        {filterClass.map((item, index) => (
           <div className={style.card} key={index}>
-            <h3>{item.className}</h3>
+            <h3>{item.CourseName}</h3>
             <div className={style.notify}>
               <i>
                 <MdOutlineNotificationsNone />

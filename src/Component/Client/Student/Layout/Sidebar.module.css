@@ -1,5 +1,5 @@
 .admin-main-container {
-  background-color: #262626;
+  background-color: #2f6296;
   height: 100vh;
   position: fixed;
 }
@@ -54,6 +54,6 @@
 }
 .logout > i {
   font-size: 32px;
-  color: gray;
+  color: #92afb1;
   cursor: pointer;
 }

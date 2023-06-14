@@ -6,26 +6,46 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
 const Dashboard = (props) => {
+  const Username = localStorage.getItem("userName");
+  const userType = localStorage.getItem("userType");
+  const id = localStorage.getItem("id");
+  const filterCourse = props.courseData.filter((item => item.CourseCreator === Username )) 
+
   const columns = [
     {
-      name: "Announcement",
-      selector: (row) => (
-        <>
-          {row.title} <br /> {row.message}
-        </>
-      ),
+      name: "Course Id",
+      selector: (row) => row.CourseId,
       sortable: true,
     },
     {
-      name: "Time",
-      selector: (row) => row.time,
+      name: "Course Name",
+      selector: (row) => row.CourseName,
       sortable: true,
     },
     {
-      name: "Url",
-      selector: (row) => (
-        <div onClick={() => window.open(`${row.url}`, "_self")}>{row.url}</div>
-      ),
+      name: "Credit Hour",
+      selector: (row) => row.CreaditHour,
+      sortable: true,
+    },
+    {
+      name: "ETCS",
+      selector: (row) => row.Ects,
+      sortable: true,
+    },
+    {
+      name: "Course Department",
+      selector: (row) => row.courseDept,
+      sortable: true,
+    },
+    {
+      name: "Lecture ID",
+      selector: (row) => row.lectureID,
+      sortable: true,
+    },
+    
+    {
+      name: "Course Creator",
+      selector: (row) => row.CourseCreator,
       sortable: true,
     },
     {
@@ -45,29 +65,7 @@ const Dashboard = (props) => {
   const deleteHandler = (id) => {
     console.log(id);
   };
-  const data = [
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe ejkfhidahf khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe  khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-    {
-      id: "0001",
-      title: "hello world",
-      message: "shgfjadshfiuhe ejkfhidahf khsahfkfas hasfkjhas",
-      time: "3:20",
-      url: "https://www.worldwar.com",
-    },
-  ];
+
   const customStyle = {
     rows: {
       style: {
@@ -96,9 +94,9 @@ const Dashboard = (props) => {
               <img src={user} alt="user" />
             </div>
             <div className={style.information}>
-              <h2>yonatan mekonnen</h2>
-              <h5>Supervisor</h5>
-              <h5>NSR/5320/12</h5>
+              <h2>{Username}</h2>
+              <h5>{userType}</h5>
+              <h5>{id}</h5>
               <br />
               <h5>5 Department</h5>
             </div>
@@ -122,13 +120,13 @@ const Dashboard = (props) => {
       <div className={style.cards}>
         <div className={style.cardHead}>
           <div className={style.headLeft}>
-            <h3>Create Course Announcement</h3>
+            <h3>Create Course</h3>
           </div>
           <div className={style.headRight}>search</div>
         </div>
         <hr />
         <div className={style.add}>
-          <h6>3 Posted</h6>
+          <h6>{filterCourse.length} Posted</h6>
           <i onClick={props.onClick}>
             <abbr title="Create Announcement">
               <MdAddCircleOutline />
@@ -138,7 +136,7 @@ const Dashboard = (props) => {
         <hr />
         <DataTable
           columns={columns}
-          data={data}
+          data={filterCourse}
           // selectableRows
           fixedHeader
           pagination

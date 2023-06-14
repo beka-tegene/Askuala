@@ -15,6 +15,7 @@ const Answer = () => {
     <Layout>
       <Question onClick={()=>createHandler()}/>
       {display && <AskQuestion display={()=>hiddenHandler()}/>}
+      
     </Layout>
   );
 };

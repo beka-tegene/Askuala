@@ -18,6 +18,7 @@ import MemberStudent from "./Page/Client/SuperVisor/MemberStudent";
 import ClassTeacher from "./Page/Client/SuperVisor/ClassTeacher";
 import AnswerStudent from "./Page/Client/SuperVisor/AnswerStudent";
 import ClassTeachers from "./Page/Admin/ClassTeacher";
+import Questions from "./Page/Client/Student/Questions";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/student/my-class" element={<MyClass />} />
       <Route path="/student/available-class" element={<ClassAvailable />} />
       <Route path="/student/question-answer" element={<Answer />} />
+      <Route path="/student/question-answer/:id" element={<Questions />} />
 
       <Route path="/teacher/dashboard" element={<DashboardTeacher />} />
       <Route path="/teacher/hosted-class" element={<HostedClass />} />

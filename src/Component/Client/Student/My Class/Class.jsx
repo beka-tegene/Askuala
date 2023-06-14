@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./Class.module.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
-const Class = () => {
+const Class = (props) => {
   const DUMMY_DATA = [
     {
       classID: "CLS/7878/11",
@@ -58,7 +58,7 @@ const Class = () => {
             </div>
             {menuData && useData === index && (
               <div className={style.menu}>
-                <Link>Show Details</Link>
+                <Link onClick={()=>props.onClick(item)}>Show Details</Link>
               </div>
             )}
             <div className={style.info}>
