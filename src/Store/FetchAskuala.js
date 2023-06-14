@@ -100,8 +100,25 @@ export const storequestion = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
+
+  
   
 
+  console.log(useData);
+  if (useData.data.status === "ok") {
+    // window.location.href = "/login"; redirect it to where ever you want
+  }
+};
+
+
+
+export const storeJoin = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/JoinClass", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
   console.log(useData);
   if (useData.data.status === "ok") {
     // window.location.href = "/login"; redirect it to where ever you want
@@ -168,6 +185,16 @@ export const fetchAnswer = async (data) => {
   });
   console.log("the answer is",useData.data[0].Answer);
   return useData.data.Answer;
+};
+export const fetchUsers = async (data) => {
+
+  console.log("users page");
+  const useData = await axios.post("http://localhost:5000/fetchUsers",{
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  return useData.data;
 };
 export const fetchQuestion = async () => {
   console.log("question  page");
