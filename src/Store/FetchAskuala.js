@@ -10,7 +10,7 @@ export const fetchUserLogin = async (data) => {
     window.location.href = "/student/dashboard";
   }else if (useData.data.role === "Teacher") {
     window.location.href = "/teacher/dashboard";
-  }else if (useData.data.role === "Supervisor") {
+  }else if (useData.data.role === "SuperVisor") {
     window.location.href = "/supervisor/dashboard";
   }else if (useData.data.role === "Admin") {
     window.location.href = "/admin/dashboard";
@@ -249,6 +249,7 @@ export const removeTodo = async (data) => {
   if (useData.data.status === "ok") {
     // window.location.href = "/login"; redirect it to where ever you want
   }
+  
 };
 
 
