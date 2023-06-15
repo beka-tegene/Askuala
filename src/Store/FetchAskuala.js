@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const fetchUserLogin = async (data) => {
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/login-user", {
     data,
     ContentType: "application/json",

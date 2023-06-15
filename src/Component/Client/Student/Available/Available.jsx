@@ -13,9 +13,11 @@ const Available = () => {
     dispatch(getCreateClass());
   }, [dispatch]);
   const filterClass = classData?.filter(
-    (item) => item.courseDept === department
+    (item) =>
+      item.courseDept === department &&
+      (item.Member?.some((item) => item?.StudentId !== id) ||
+        item.Member?.length === 0)
   );
-  console.log(filterClass);
 
   const [joinData, setJoinData] = useState(false);
   const [useJoin, setUseJoin] = useState();
@@ -74,10 +76,6 @@ const Available = () => {
                 <h5>End Day :-</h5>
                 <h4>{item.EndDay}</h4>
               </div>
-              <div className={style.info}>
-                <h5>Description </h5>
-                <h4>{item.Description} </h4>
-              </div>
               <div className={style.btn}>
                 <button onClick={() => joinHandler(index)}>Join Class</button>
               </div>
@@ -93,9 +91,7 @@ const Available = () => {
                   <div className={style.btnLong}>
                     <button onClick={() => ContinueHandler()}>Cancel</button>
                     <button
-                      onClick={() =>
-                        joinClassHandler(item._id, item.lectureID)
-                      }
+                      onClick={() => joinClassHandler(item._id, item.lectureID)}
                     >
                       Continue
                     </button>

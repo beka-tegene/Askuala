@@ -3,32 +3,6 @@ import style from "./ClassDetail.module.css";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
 const ClassDetail = (props) => {
-  const DUMMY_DATA = [
-    {
-      title: "grade",
-    },
-    {
-      title: "material for student ",
-    },
-    {
-      title: "exam 22/2/2023",
-    },
-    {
-      title: "oxford book",
-    },
-    {
-      title: "grade",
-    },
-    {
-      title: "material for student ",
-    },
-    {
-      title: "exam 22/2/2023",
-    },
-    {
-      title: "oxford book",
-    },
-  ];
   return (
     <div className={style.container}>
       <div className={style.dropBack} onClick={() => props.display()}></div>
@@ -55,22 +29,28 @@ const ClassDetail = (props) => {
             <h4>{props.data.CreaditHour} hours</h4>
           </div>
           <div className={style.info}>
+            <h5>Start Day :-</h5>
+            <h4>{props.data.StartDay}</h4>
+          </div>
+          <div className={style.info}>
+            <h5>End Day :-</h5>
+            <h4>{props.data.EndDay}</h4>
+          </div>
+          <div className={style.info}>
             <h5>Description </h5>
-            <h4>
-            {props.data.Description}
-            </h4>
+            <h4>{props.data.Description}</h4>
           </div>
         </div>
         <div className={style.right}>
           <h1>Class Material</h1>
           <div className={style.librarian}>
-            {DUMMY_DATA.map((item , index) => (
+            {props.data.Material?.map((item, index) => (
               <div className={style.library} key={index}>
                 <div>
                   <i>
                     <RiBook2Fill />
                   </i>
-                  <h5>{item.title}</h5>
+                  <h5>{item.Title}</h5>
                 </div>
                 <h6>
                   <i>

@@ -8,32 +8,32 @@ import { setMaterialClass } from "../../../../Store/teacher/dashboard";
 const ClassDetails = (props) => {
   const [title , setTitle] = useState()
   const dispatch = useDispatch()
-  const DUMMY_DATA = [
-    {
-      title: "grade",
-    },
-    {
-      title: "material for student ",
-    },
-    {
-      title: "exam 22/2/2023",
-    },
-    {
-      title: "oxford book",
-    },
-    {
-      title: "grade",
-    },
-    {
-      title: "material for student ",
-    },
-    {
-      title: "exam 22/2/2023",
-    },
-    {
-      title: "oxford book",
-    },
-  ];
+  // const DUMMY_DATA = [
+  //   {
+  //     title: "grade",
+  //   },
+  //   {
+  //     title: "material for student ",
+  //   },
+  //   {
+  //     title: "exam 22/2/2023",
+  //   },
+  //   {
+  //     title: "oxford book",
+  //   },
+  //   {
+  //     title: "grade",
+  //   },
+  //   {
+  //     title: "material for student ",
+  //   },
+  //   {
+  //     title: "exam 22/2/2023",
+  //   },
+  //   {
+  //     title: "oxford book",
+  //   },
+  // ];
   const submitHandler = (e) => {
     e.preventDefault()
     const Classid = props.data._id
@@ -79,13 +79,13 @@ const ClassDetails = (props) => {
         <div className={style.right}>
           <h1>Class Material</h1>
           <div className={style.librarian}>
-            {DUMMY_DATA.map((item, index) => (
+            {props.data.Material?.map((item, index) => (
               <div className={style.library} key={index}>
                 <div>
                   <i>
                     <RiBook2Fill />
                   </i>
-                  <h5>{item.title}</h5>
+                  <h5>{item.Title}</h5>
                 </div>
                 <h6>
                   <i>
@@ -95,7 +95,7 @@ const ClassDetails = (props) => {
               </div>
             ))}
           </div>
-          <form action="" onSubmit={submitHandler}>
+          <form action="" onSubmit={submitHandler} className={style.form}>
             <div className={style.inputTitle}>
               <label htmlFor="">Title</label>
               <input type="text" onChange={(e) => setTitle(e.target.value)} />

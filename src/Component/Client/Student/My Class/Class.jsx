@@ -13,7 +13,6 @@ const Class = (props) => {
   useEffect(() => {
     dispatch(getCreateClass());
   }, [dispatch]);
-  // console.log(classData,"class");
   const filter = classData?.filter(
     (item) =>
       item.courseDept === department &&

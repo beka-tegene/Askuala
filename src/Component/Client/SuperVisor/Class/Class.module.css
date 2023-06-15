@@ -16,11 +16,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #5f6171;
+  background-color: #2F6296;
   padding: 1rem;
   border-radius: 5px;
   color: #ffffff;
-  box-shadow: inset 0px 5px 5px #a4a7b9;
+  box-shadow: -5px 5px 5px #e0f0ff;
 }
 .head {
   text-align: right;

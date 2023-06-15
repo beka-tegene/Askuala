@@ -9,9 +9,9 @@ const initialState = {
   getQuestions: [],
   answers: [],
   getAnswers: [],
-  joinClass:[],
-  join:[],
-  removeTodoSet:[],
+  joinClass: [],
+  join: [],
+  removeTodoSet: [],
 };
 
 const students = createSlice({
@@ -31,7 +31,6 @@ const students = createSlice({
       state.removeTodoSet.push({
         id: newData,
       });
-
     },
     getTodoLists(state) {},
     getTodos(state, action) {
@@ -87,7 +86,9 @@ const students = createSlice({
 });
 
 export const {
-  setJoin,setJoinClass,setRemoveTodo,
+  setJoin,
+  setJoinClass,
+  setRemoveTodo,
   setTodoList,
   setTodo,
   getTodoLists,

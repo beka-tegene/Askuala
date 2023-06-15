@@ -34,7 +34,9 @@
   justify-content: flex-start;
   gap: 1rem;
   padding: 1rem 2rem;
-  
+}
+.cards a{
+  color: #272727;
 }
 .card {
   display: flex;
@@ -50,6 +52,7 @@
 }
 .card h3{
   font-weight: 500;
+  color: #00BFFF;
 }
 .card h6{
   text-align: right;

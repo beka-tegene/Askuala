@@ -2,7 +2,7 @@ import React ,{ useEffect }from "react";
 import DataTable from "react-data-table-component";
 import style from "./Member.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../Store/Auth";
+import { getUser, setRemoveUser } from "../../../Store/Auth";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
 function Members() {
@@ -63,7 +63,7 @@ function Members() {
     },
   ];
   const deleteHandler = (id) => {
-    console.log(id);
+    dispatch(setRemoveUser({ data: id }));
   };
   const customStyle = {
     rows: {
