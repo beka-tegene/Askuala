@@ -156,6 +156,20 @@ export const storeJoin = async (data) => {
   }
 };
 
+
+export const storeMaterial = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/storeMaterials", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+  console.log(useData);
+  if (useData.data.status === "ok") {
+    // window.location.href = "/login"; redirect it to where ever you want
+  }
+};
+
 export const storeClass = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/storeClass", {
@@ -182,6 +196,8 @@ export const storeTodoList = async (data) => {
     window.location.href = "/student/dashboard"; 
   }
 };
+
+
 
 export const fetchBook = async () => {
   const useData = await axios.get("http://localhost:5000/fetchbook");
