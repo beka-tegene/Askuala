@@ -28,7 +28,8 @@ const DashboardStudent = (props) => {
     );
     setGetTodo("");
   };
-  const limitedData = props.Announcement.slice(0, 4);
+  const limitedData = props.Announcement?.slice(0, 4);
+  const limitedBook = props.Books?.slice(0, 5);
   const deleteTodoHandler = (id) => {
     dispatch(setRemoveTodo({ data: id }));
   };
@@ -72,7 +73,7 @@ const DashboardStudent = (props) => {
                 <h4>Library</h4>
                 <p></p>
               </div>
-              {props.Books.map((item, index) => (
+              {limitedBook.map((item, index) => (
                 <div className={style.library} key={index}>
                   <div>
                     <i>
@@ -103,15 +104,6 @@ const DashboardStudent = (props) => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className={style.bottom}>
-            <h4>
-              Here you will find all the information you need to stay organized
-              and up-to-date with your academic journey. This dashboard is
-              designed to provide a user-friendly and intuitive experience,
-              helping you navigate through your courses, assignments, and
-              important announcements effortlessly.
-            </h4>
           </div>
         </div>
         <div className={style.todos}>

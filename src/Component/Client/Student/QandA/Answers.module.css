@@ -38,13 +38,15 @@ font-size: 24px;
 
 .cards {
   display: flex;
-  /* flex-direction: column; */
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
   padding: 1rem 2rem;
-  background-color: #AECAF2;
+  width: 90%;
+  margin: 0 auto;
+  /* background-color: #AECAF2; */
 }
+
 .counter{
   font-size: 32px;
   background-color: #76be99;
@@ -67,6 +69,7 @@ font-size: 24px;
 
 .card h3 {
   font-weight: 500;
+  color: #00BFFF;
 }
 .card h6 {
   text-align: right;
@@ -81,11 +84,11 @@ font-size: 24px;
 
 .answerCards {
   display: flex;
-  /* flex-direction: column; */
   align-items: flex-start;
   justify-content: flex-start;
-  /* gap: 1rem; */
   padding: 1rem 5rem;
+  width: 85%;
+  margin: 0 auto;
 }
 .answerCounter{
   font-size: 14px;

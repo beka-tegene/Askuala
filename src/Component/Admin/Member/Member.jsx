@@ -63,7 +63,7 @@ function Members() {
     },
   ];
   const deleteHandler = (id) => {
-    console.log(id);
+    console.log(id); 
   };
   const customStyle = {
     rows: {

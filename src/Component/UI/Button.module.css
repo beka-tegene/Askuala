@@ -9,19 +9,19 @@
 }
 .btn button:first-child {
   background-color: transparent;
-  border: 2px solid #45A1C3;
+  border: 2px solid #222c65;
   font-weight: bold;
   margin-right: 1rem;
 }
 .btn button:first-child a{
-  color: #45A1C3;
+  color: #222c65;
   padding: 0.7rem 2rem;
   border-radius: 5px;
 
 }
 .btn button:last-child {
-  background-color: #45A1C3;
-  border: 2px solid #45A1C3;
+  background-color: #222c65;
+  border: 2px solid #222c65;
   color: #fff;
   font-weight: bold;
   margin-right: 1rem;

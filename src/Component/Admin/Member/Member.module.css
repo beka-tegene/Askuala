@@ -2,3 +2,16 @@
   padding: 1rem 2% 0 12.7rem;
     border-radius: 10px;
 }
+.Action-container{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.Action-edit{
+  color: #3c3cb2;
+  font-size: 16px;
+}
+.Action-delete{
+  color: #e45656;
+  font-size: 16px;
+}

@@ -16,6 +16,7 @@ import {
   storeClass,
   storeCourse,
   storeJoin,
+  storeMaterial,
   storeTodoList,
   storequestion,
 } from "./FetchAskuala";
@@ -126,15 +127,15 @@ function* getUsers() {
   const user = yield call(fetchUsers);
   yield put(getUserData(user));
 }
+function* teacherMaterialClass(action) {
+  yield call(storeMaterial, action.payload.data);
+  yield setMaterial();
+}
 function* removeTodoList(action) {
   yield call(removeTodo, action.payload);
   yield setTodo();
 }
-function* teacherMaterialClass(action) {
-  yield call(storeJoin, action.payload.data);
-  yield setMaterial();
+function* removeUserList(action) {
+  yield call(removeTodo, action.payload);
+  yield setTodo();
 }
-// function* getUsers() {
-//   const user = yield call(fetchUsers);
-//   yield put(getUserData(user));
-// }
