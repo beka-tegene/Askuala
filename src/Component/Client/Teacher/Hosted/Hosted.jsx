@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCreateClass } from "../../../../Store/teacher/dashboard";
-const Hosted = () => {
+const Hosted = (props) => {
   const id = localStorage.getItem("id");
   const classData = useSelector((state) => state.teacher.classFitch);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Hosted = () => {
             </div>
             {menuData && useData === index && (
               <div className={style.menu}>
-                <Link>Show Details</Link>
+                <Link onClick={() => props.onClick(item)}>Show Details</Link>
                 <Link to={`/teacher/announcement/${item._id}`}>
                   Announcement
                 </Link>

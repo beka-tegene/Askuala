@@ -134,12 +134,10 @@ export const removeTodo = async (data) => {
     Accept: "application/json",
   });
 
-  
-  
 
-  console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  // console.log(useData);
+  if (useData.status === 200) {
+    window.location.reload(true)
   }
 };
 

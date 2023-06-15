@@ -10,6 +10,7 @@ import {
   fetchUserLogin,
   fetchUserRegister,
   fetchUsers,
+  removeTodo,
   storeAnnouncement,
   storeAnswers,
   storeClass,
@@ -28,16 +29,19 @@ import {
   setAnswer,
   setJoin,
   setQuestion,
+  setTodo,
   setTodoList,
 } from "./Student/dashboard";
 import { getCourse, setCreateCourse } from "./supervisor/dashboard";
-import { getClass, setCreateAnnouncement, setCreateClass } from "./teacher/dashboard";
+import { getClass, setCreateAnnouncement, setCreateClass, setMaterial } from "./teacher/dashboard";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
   yield takeLatest("auth/signup", userRegister);
   yield takeLatest("auth/getUser", getUsers);
   yield takeLatest("student/setTodo", todoList);
+
+  yield takeLatest("student/setRemoveTodo", removeTodoList);
   yield takeLatest("student/getTodoLists", todoFetch);
   yield takeLatest("student/getLibrary", bookLibrary);
   yield takeLatest("student/getAnnounce", classAnnouncement);
@@ -51,7 +55,7 @@ export function* watchFetchAskuala() {
   yield takeLatest("student/setAnswerQuestion", createAnswer);
   yield takeLatest("student/getAnswer", getAnswerCreate);
   yield takeLatest("student/setJoinClass", StudentJoinClass);
-  // yield takeLatest("student/getAnswer", getAnswerCreate);
+  yield takeLatest("teacher/setMaterialClass", teacherMaterialClass);
 }
 
 function* userLogin(action) {
@@ -122,3 +126,15 @@ function* getUsers() {
   const user = yield call(fetchUsers);
   yield put(getUserData(user));
 }
+function* removeTodoList(action) {
+  yield call(removeTodo, action.payload);
+  yield setTodo();
+}
+function* teacherMaterialClass(action) {
+  yield call(storeJoin, action.payload.data);
+  yield setMaterial();
+}
+// function* getUsers() {
+//   const user = yield call(fetchUsers);
+//   yield put(getUserData(user));
+// }
