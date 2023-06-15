@@ -3,7 +3,7 @@ import style from "./DashboardStudent.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
-import { setTodo } from "../../../../Store/Student/dashboard";
+import { setRemoveTodo, setTodo } from "../../../../Store/Student/dashboard";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 
@@ -29,9 +29,9 @@ const DashboardStudent = (props) => {
     setGetTodo("");
   };
   const limitedData = props.Announcement.slice(0, 4);
-  const deleteTodoHandler=(id)=>{
-    console.log(id);
-  }
+  const deleteTodoHandler = (id) => {
+    dispatch(setRemoveTodo({ data: id }));
+  };
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -130,11 +130,15 @@ const DashboardStudent = (props) => {
                 id="checkbox"
                 onChange={(e) => {
                   setChecked(e.target.checked);
-                  setIndex(index)
+                  setIndex(index);
                 }}
-                onClick={checked && indexs === index && deleteTodoHandler(item._id)}
+                onClick={
+                  checked && indexs === index && deleteTodoHandler(item._id)
+                }
               />
-              <h4 className={`${checked && indexs === index && style.input}`}>{item.todo}</h4>
+              <h4 className={`${checked && indexs === index && style.input}`}>
+                {item.todo}
+              </h4>
             </div>
           ))}
         </div>

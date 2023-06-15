@@ -4,7 +4,6 @@ import NotFound from "./Page/NotFound";
 import SignIn from "./Page/Signin";
 import SignUp from "./Page/Signup";
 import DashboardAdmin from "./Page/Admin/DashboardAdmin";
-import TransactionAdmin from "./Page/Admin/TransactionAdmin";
 import Dashboard from "./Page/Client/Student/Dashboard";
 import MyClass from "./Page/Client/Student/MyClass";
 import ClassAvailable from "./Page/Client/Student/ClassAvailable";
@@ -19,6 +18,7 @@ import ClassTeacher from "./Page/Client/SuperVisor/ClassTeacher";
 import AnswerStudent from "./Page/Client/SuperVisor/AnswerStudent";
 import ClassTeachers from "./Page/Admin/ClassTeacher";
 import Questions from "./Page/Client/Student/Questions";
+import MemberAdmin from "./Page/Admin/MemberAdmin";
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
       <Route path="/supervisor/question-answer" element={<AnswerStudent />} />
 
       <Route path="/admin/dashboard" element={<DashboardAdmin />} />
-      <Route path="/admin/member" element={<TransactionAdmin />} />
+      <Route path="/admin/member" element={<MemberAdmin />} />
       <Route path="/admin/classes" element={<ClassTeachers />} />
 
       <Route element={<NotFound />} path="/*" />

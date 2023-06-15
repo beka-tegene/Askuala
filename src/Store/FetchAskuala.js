@@ -109,6 +109,39 @@ export const storequestion = async (data) => {
   }
 };
 
+export const removeUser = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/removeUser", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  
+  
+
+  console.log(useData);
+  if (useData.data.status === "ok") {
+    // window.location.href = "/login"; redirect it to where ever you want
+  }
+};
+
+export const removeTodo = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/removeTodo", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  
+  
+
+  console.log(useData);
+  if (useData.data.status === "ok") {
+    // window.location.href = "/login"; redirect it to where ever you want
+  }
+};
 
 export const storeJoin = async (data) => {
   console.log(data);
