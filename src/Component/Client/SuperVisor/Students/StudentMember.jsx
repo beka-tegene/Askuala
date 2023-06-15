@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DataTable from "react-data-table-component";
 import style from './Member.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../../Store/Auth";
 const StudentMember = () => {
+  const users = useSelector((state) => state.auth.user);
+  const studentUser = users?.filter((item)=> item.role === 'Student')
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch])
   const columns = [
     {
+      name: "ID",
+      selector: (row) => row.Id,
+      sortable: true,
+    },
+    {
       name: "Name",
-      selector: (row) => row.firstName,
+      selector: (row) => row.fullName,
       sortable: true,
     },
     {
@@ -19,68 +32,20 @@ const StudentMember = () => {
       sortable: true,
     },
     {
-      name: "location",
-      selector: (row) => row.place,
+      name: "Gender",
+      selector: (row) => row.gender,
       sortable: true,
     },
-  ];
-  const data = [
     
     {
-      id: "0002",
-      firstName: "abel max",
-      email: "abelmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
+      name: "Department",
+      selector: (row) => row.department,
+      sortable: true,
     },
     {
-      id: "0003",
-      firstName: "kayel max",
-      email: "kayelmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0007",
-      firstName: "smon max",
-      email: "smonmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0008",
-      firstName: "ragnar max",
-      email: "ragnarmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0009",
-      firstName: "gelila max",
-      email: "gelilamax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0010",
-      firstName: "fasica max",
-      email: "fasicamax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0011",
-      firstName: "beimnet max",
-      email: "beimnetmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
-    },
-    {
-      id: "0012",
-      firstName: "aron max",
-      email: "aronmax@gmail.com",
-      phoneNumber: "+25178981223",
-      place: "Addis ababa",
+      name: "User Type",
+      selector: (row) => row.role,
+      sortable: true,
     },
   ];
   const customStyle = {
@@ -106,8 +71,7 @@ const StudentMember = () => {
     <div className={style.container}>
       <DataTable
         columns={columns}
-        data={data}
-        // selectableRows
+        data={studentUser}
         fixedHeader
         pagination
         customStyles={customStyle}

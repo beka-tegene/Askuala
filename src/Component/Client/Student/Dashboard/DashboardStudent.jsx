@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import style from "./DashboardStudent.module.css";
 import user from "../../../../img/pexels-photo-614810.png";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
 import { setTodo } from "../../../../Store/Student/dashboard";
 import { useDispatch } from "react-redux";
+import moment from "moment";
 
 const DashboardStudent = (props) => {
   const Username = localStorage.getItem("userName");
@@ -12,7 +13,8 @@ const DashboardStudent = (props) => {
   const id = localStorage.getItem("id");
   const [getTodo, setGetTodo] = useState();
   const [checked, setChecked] = useState();
-  const dispatch = useDispatch()
+  const [indexs, setIndex] = useState();
+  const dispatch = useDispatch();
   const todoHandler = (e) => {
     setGetTodo(e.target.value);
   };
@@ -21,12 +23,15 @@ const DashboardStudent = (props) => {
     // setTodoList((prev) => [...prev, todo]);
     dispatch(
       setTodo({
-        data: getTodo,
+        data: { getTodo, id },
       })
     );
     setGetTodo("");
   };
-  const limitedData = props.Announcement.slice(0, 4)
+  const limitedData = props.Announcement.slice(0, 4);
+  const deleteTodoHandler=(id)=>{
+    console.log(id);
+  }
   return (
     <div className={style.container}>
       <div className={style.head}>
@@ -91,9 +96,10 @@ const DashboardStudent = (props) => {
               {limitedData.map((item, index) => (
                 <div className={style.announce} key={index}>
                   <h4>{item.Announcement}</h4>
+                  <h4>Arrival time {item.Time}</h4>
                   <p>{item.ClassLink}</p>
                   <h5>{item.AnonouncerName}</h5>
-                  <h6>{item.Time}</h6>
+                  <h5>{moment(item.createdAt).fromNow()}</h5>
                 </div>
               ))}
             </div>
@@ -122,9 +128,13 @@ const DashboardStudent = (props) => {
                 type="checkbox"
                 name="checkbox"
                 id="checkbox"
-                onChange={(e) => setChecked(e.target.checked)}
+                onChange={(e) => {
+                  setChecked(e.target.checked);
+                  setIndex(index)
+                }}
+                onClick={checked && indexs === index && deleteTodoHandler(item._id)}
               />
-              <h4 className={`${checked && style.input}`}>{item.todo}</h4>
+              <h4 className={`${checked && indexs === index && style.input}`}>{item.todo}</h4>
             </div>
           ))}
         </div>

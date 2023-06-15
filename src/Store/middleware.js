@@ -9,6 +9,7 @@ import {
   fetchTodoList,
   fetchUserLogin,
   fetchUserRegister,
+  fetchUsers,
   storeAnnouncement,
   storeAnswers,
   storeClass,
@@ -17,7 +18,7 @@ import {
   storeTodoList,
   storequestion,
 } from "./FetchAskuala";
-import { registerGet } from "./Auth";
+import { getUserData, registerGet } from "./Auth";
 import {
   getAnnouncement,
   getAnswerQuestion,
@@ -35,6 +36,7 @@ import { getClass, setCreateAnnouncement, setCreateClass } from "./teacher/dashb
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
   yield takeLatest("auth/signup", userRegister);
+  yield takeLatest("auth/getUser", getUsers);
   yield takeLatest("student/setTodo", todoList);
   yield takeLatest("student/getTodoLists", todoFetch);
   yield takeLatest("student/getLibrary", bookLibrary);
@@ -115,4 +117,8 @@ function* getAnswerCreate() {
 function* StudentJoinClass(action) {
   yield call(storeJoin, action.payload.data);
   yield setJoin();
+}
+function* getUsers() {
+  const user = yield call(fetchUsers);
+  yield put(getUserData(user));
 }

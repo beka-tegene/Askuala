@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   InputLogIn: [],
   InputRegister: [],
+  user:[],
 };
 
 const auth = createSlice({
@@ -30,10 +31,14 @@ const auth = createSlice({
         cPassword: newData.cPassword,
       });
     },
+    getUser(state){},
+    getUserData(state ,action){
+      state.user = action.payload
+    },
     registerGet(state){}
   },
 });
 
-export const { login, signup, registerGet } = auth.actions;
+export const { login, signup, registerGet,getUser,getUserData } = auth.actions;
 
 export default auth.reducer;

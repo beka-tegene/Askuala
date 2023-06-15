@@ -19,9 +19,10 @@ const students = createSlice({
   reducers: {
     setTodoList(state) {},
     setTodo(state, action) {
-      const newData = action.payload;
+      const newData = action.payload.data;
       state.todoSet.push({
-        inputTodo: newData,
+        inputTodo: newData.getTodo,
+        studentId: newData.id,
       });
     },
     getTodoLists(state) {},
