@@ -250,6 +250,7 @@ export const removeTodo = async (data) => {
   if (useData.data.status === "ok") {
     // window.location.href = "/login"; redirect it to where ever you want
   }
+  
 };
 
 
