@@ -208,7 +208,6 @@ export const fetchTodoList = async () => {
   return useData.data;
 };
 export const fetchAnswer = async (data) => {
-  alert("das")
   console.log("Answer page");
   const useData = await axios.post("http://localhost:5000/fetchAnswer",{
     data,
