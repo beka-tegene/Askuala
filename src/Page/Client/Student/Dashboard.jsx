@@ -5,10 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAnnounce, getLibrary, getTodoLists } from "../../../Store/Student/dashboard";
 import { useEffect } from "react";
 const Dashboard = () => {
+  const id = localStorage.getItem("id");
   const dispatch = useDispatch();
   const lists = useSelector((state) => state.student.todoSet);
+  const listTodo = lists?.filter((item)=> item.studentId === id);
   const books = useSelector((state) => state.student.book);
   const announcement = useSelector((state) => state.student.announcement);
+
   useEffect(() => {
     dispatch(getAnnounce());
   }, [dispatch]);
@@ -21,7 +24,7 @@ const Dashboard = () => {
   
   return (
     <Layout>
-      <DashboardStudent DUMMY={lists} Books={books} Announcement={announcement}/>
+      <DashboardStudent DUMMY={listTodo} Books={books} Announcement={announcement}/>
     </Layout>
   );
 };

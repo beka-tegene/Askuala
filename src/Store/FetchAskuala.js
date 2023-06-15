@@ -6,13 +6,13 @@ export const fetchUserLogin = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
-  if (useData.data.role === "student") {
+  if (useData.data.role === "Student") {
     window.location.href = "/student/dashboard";
-  }else if (useData.data.role === "teacher") {
+  }else if (useData.data.role === "Teacher") {
     window.location.href = "/teacher/dashboard";
-  }else if (useData.data.role === "supervisor") {
+  }else if (useData.data.role === "Supervisor") {
     window.location.href = "/supervisor/dashboard";
-  }else if (useData.data.role === "admin") {
+  }else if (useData.data.role === "Admin") {
     window.location.href = "/admin/dashboard";
   }
   window.localStorage.setItem("token", useData.data.data);
@@ -233,11 +233,10 @@ export const fetchAnswer = async (data) => {
   console.log("the answer is",useData.data[0].Answer);
   return useData.data.Answer;
 };
-export const fetchUsers = async (data) => {
+export const fetchUsers = async () => {
 
   console.log("users page");
-  const useData = await axios.post("http://localhost:5000/fetchUsers",{
-    data,
+  const useData = await axios.get("http://localhost:5000/fetchUsers",{
     ContentType: "application/json",
     Accept: "application/json",
   });
