@@ -5,11 +5,14 @@ import DataTable from "react-data-table-component";
 import { MdAddCircleOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
+import { setRemoveCourse } from "../../../../Store/supervisor/dashboard";
+import { useDispatch } from "react-redux";
 const Dashboard = (props) => {
   const Username = localStorage.getItem("userName");
   const userType = localStorage.getItem("userType");
   const id = localStorage.getItem("id");
   const filterCourse = props.courseData.filter((item => item.CourseCreator === Username )) 
+  const dispatch = useDispatch();
 
   const columns = [
     {
@@ -64,6 +67,7 @@ const Dashboard = (props) => {
   ];
   const deleteHandler = (id) => {
     console.log(id);
+    dispatch(setRemoveCourse({ data: id }));
   };
 
   const customStyle = {

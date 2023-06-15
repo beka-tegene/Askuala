@@ -12,6 +12,8 @@ const initialState = {
   joinClass: [],
   join: [],
   removeTodoSet: [],
+  removeAnnouncementSet: [],
+  removeQuestionSet: [],
 };
 
 const students = createSlice({
@@ -40,6 +42,12 @@ const students = createSlice({
     getLibraryBook(state, action) {
       state.book = action.payload;
     },
+    setRemoveAnnouncement(state, action) {
+      const newData = action.payload;
+      state.removeAnnouncementSet.push({
+        id: newData,
+      });
+    },
     getAnnounce(state) {},
     getAnnouncement(state, action) {
       state.announcement = action.payload;
@@ -51,6 +59,12 @@ const students = createSlice({
         question: newData.question,
         department: newData.department,
         Username: newData.Username,
+      });
+    },
+    setRemoveQuestion(state, action) {
+      const newData = action.payload;
+      state.removeQuestionSet.push({
+        id: newData,
       });
     },
     getQuestion(state) {},
@@ -86,7 +100,7 @@ const students = createSlice({
 });
 
 export const {
-  setJoin,
+  setJoin,setRemoveAnnouncement,setRemoveQuestion,
   setJoinClass,
   setRemoveTodo,
   setTodoList,

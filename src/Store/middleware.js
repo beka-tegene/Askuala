@@ -10,7 +10,10 @@ import {
   fetchUserLogin,
   fetchUserRegister,
   fetchUsers,
+  removeAnnouncement,
   removeClass,
+  removeCourse,
+  removeQA,
   removeTodo,
   removeUser,
   storeAnnouncement,
@@ -24,9 +27,11 @@ import {
 } from "./FetchAskuala";
 import { getUser, getUserData, registerGet } from "./Auth";
 import {
+  getAnnounce,
   getAnnouncement,
   getAnswerQuestion,
   getLibraryBook,
+  getQuestion,
   getQuestionAnswer,
   getTodos,
   setAnswer,
@@ -35,8 +40,18 @@ import {
   setTodo,
   setTodoList,
 } from "./Student/dashboard";
-import { getCourse, setCreateCourse } from "./supervisor/dashboard";
-import { getClass, getCreateClass, setCreateAnnouncement, setCreateClass, setMaterial } from "./teacher/dashboard";
+import {
+  getCourse,
+  getCreateCourse,
+  setCreateCourse,
+} from "./supervisor/dashboard";
+import {
+  getClass,
+  getCreateClass,
+  setCreateAnnouncement,
+  setCreateClass,
+  setMaterial,
+} from "./teacher/dashboard";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
@@ -54,9 +69,12 @@ export function* watchFetchAskuala() {
   yield takeLatest("student/setAnswerQuestion", createAnswer);
   yield takeLatest("student/getAnswer", getAnswerCreate);
   yield takeLatest("student/setJoinClass", StudentJoinClass);
+  yield takeLatest("student/setRemoveAnnouncement", removeAnnouncementList);
+  yield takeLatest("student/setRemoveQuestion", removeQuestionList);
 
   yield takeLatest("supervisor/setCourse", createCourse);
   yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
+  yield takeLatest("supervisor/setRemoveCourse", removeCourseList);
 
   yield takeLatest("teacher/setClass", createClass);
   yield takeLatest("teacher/getCreateClass", getClassCreate);
@@ -148,4 +166,16 @@ function* removeUserList(action) {
 function* removeClassList(action) {
   yield call(removeClass, action.payload);
   yield getCreateClass();
+}
+function* removeCourseList(action) {
+  yield call(removeCourse, action.payload);
+  yield getCreateCourse();
+}
+function* removeAnnouncementList(action) {
+  yield call(removeAnnouncement, action.payload);
+  yield getAnnounce();
+}
+function* removeQuestionList(action) {
+  yield call(removeQA, action.payload);
+  yield getQuestion();
 }

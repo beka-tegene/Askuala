@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   course: [],
-  courseFitch: []
+  courseFitch: [],
+  removeCourseSet: []
 };
 
 const supervisors = createSlice({
@@ -22,6 +23,12 @@ const supervisors = createSlice({
         CourseCreator: newData.CourseCreator,
       });
     },
+    setRemoveCourse(state, action) {
+      const newData = action.payload;
+      state.removeCourseSet.push({
+        id: newData,
+      });
+    },
     getCreateCourse(state) {},
     getCourse(state, action) {
       state.courseFitch = action.payload.data;
@@ -29,6 +36,6 @@ const supervisors = createSlice({
   },
 });
 
-export const { setCourse, setCreateCourse,getCourse ,getCreateCourse} = supervisors.actions;
+export const { setCourse, setCreateCourse,getCourse ,getCreateCourse,setRemoveCourse} = supervisors.actions;
 
 export default supervisors.reducer;

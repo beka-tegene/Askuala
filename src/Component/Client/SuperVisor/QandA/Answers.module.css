@@ -1,0 +1,131 @@
+.container {
+  padding: 1rem 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+}
+.container>.span{
+  padding: .5rem 0;
+  cursor: pointer;
+  display: flex;
+  width: fit-content;
+  align-items: flex-start;
+}
+.container>.span>i{
+font-size: 24px;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.header button{
+  font: inherit;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #272727;
+  color: #272727;
+}
+.header button:hover{
+  background-color: #272727;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.cards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  width: 90%;
+  margin: 0 auto;
+  /* background-color: #AECAF2; */
+}
+
+.counter{
+  font-size: 32px;
+  background-color: #76be99;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 7px;
+}
+
+.card h3 {
+  font-weight: 500;
+  color: #00BFFF;
+}
+.card h6 {
+  text-align: right;
+  color: #a7a7a7;
+}
+.card span ,.answerCard span{
+  color: #c03535;
+  cursor: pointer;
+text-align: right;
+}
+.headCard {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+}
+
+.answerCards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem 5rem;
+  width: 85%;
+  margin: 0 auto;
+}
+.answerCounter{
+  font-size: 14px;
+  background-color: #76be99;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.answerCard {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.2rem; */
+  padding:0 0.5rem;
+  width: 90%;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+
+.answerCard h3 {
+  font-weight: 500;
+}
+.answerCard h6 {
+  text-align: right;
+  color: #a7a7a7;
+}
+.headAnswerCard {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+}

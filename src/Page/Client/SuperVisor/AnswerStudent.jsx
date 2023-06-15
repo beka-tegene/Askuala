@@ -1,11 +1,13 @@
+
 import React from 'react'
 import Layout from '../../../Component/Client/SuperVisor/Layout/Layout'
-import StudentQuestion from '../../../Component/Client/SuperVisor/QandA/StudentQuestion'
+import Answers from '../../../Component/Client/SuperVisor/QandA/Answers'
+
 
 const AnswerStudent = () => {
   return (
-    <Layout>
-        <StudentQuestion />
+    <Layout >
+        <Answers />
     </Layout>
   )
 }

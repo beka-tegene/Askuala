@@ -6,7 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAnnounce } from "../../../../Store/Student/dashboard";
+import { getAnnounce, setRemoveAnnouncement } from "../../../../Store/Student/dashboard";
 import { useParams } from "react-router-dom";
 // import { TfiAnnouncement } from "react-icons/tfi";
 const Announcement = (props) => {
@@ -55,6 +55,7 @@ const Announcement = (props) => {
   ];
   const deleteHandler = (id) => {
     console.log(id);
+    dispatch(setRemoveAnnouncement({ data: id }));
   };
   const customStyle = {
     rows: {

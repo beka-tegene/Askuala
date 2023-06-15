@@ -33,7 +33,6 @@ const teachers = createSlice({
       state.removeClassSet.push({
         id: newData,
       });
-      console.log();
     },
     getCreateClass(state) {},
     getClass(state, action) {
@@ -51,6 +50,7 @@ const teachers = createSlice({
         announcerName: newData.announcerName,
       });
     },
+    
     setMaterial(state) {},
     setMaterialClass(state, action) {
       const newData = action.payload;

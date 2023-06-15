@@ -18,10 +18,6 @@ const Question = (props) => {
       <div className={style.stack}>
         <div className={style.head}>
           <h2>All Question</h2>
-          <div className={style.btn}>
-            <button>My Question</button>
-            <button onClick={props.onClick}>Ask Question</button>
-          </div>
         </div>
         <div className={style.question}>
           <h5>{filterQuestion.length} questions</h5>
@@ -29,7 +25,7 @@ const Question = (props) => {
         <hr />
         <div className={style.cards}>
           {filterQuestion.map((item, index) => (
-            <Link className={style.card} key={index} to={`/student/question-answer/${item._id}`}>
+            <Link className={style.card} key={index} to={`/supervisor/question-answer/${item._id}`}>
               <div className={style.headCard}>
                 <p>student {item.QuestionAsker}</p>
                 <p>{item.Department}</p>

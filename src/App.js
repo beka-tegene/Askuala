@@ -19,6 +19,7 @@ import AnswerStudent from "./Page/Client/SuperVisor/AnswerStudent";
 import ClassTeachers from "./Page/Admin/ClassTeacher";
 import Questions from "./Page/Client/Student/Questions";
 import MemberAdmin from "./Page/Admin/MemberAdmin";
+import QuestionStudent from "./Page/Client/SuperVisor/QuestionStudent";
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
       <Route path="/supervisor/teachers" element={<MemberTeacher />} />
       <Route path="/supervisor/students" element={<MemberStudent />} />
       <Route path="/supervisor/classes" element={<ClassTeacher />} />
-      <Route path="/supervisor/question-answer" element={<AnswerStudent />} />
+      <Route path="/supervisor/question-answer" element={<QuestionStudent />} />
+      <Route path="/supervisor/question-answer/:id" element={<AnswerStudent />} />
 
       <Route path="/admin/dashboard" element={<DashboardAdmin />} />
       <Route path="/admin/member" element={<MemberAdmin />} />
