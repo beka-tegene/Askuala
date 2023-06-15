@@ -10,7 +10,9 @@ import {
   fetchUserLogin,
   fetchUserRegister,
   fetchUsers,
+  removeClass,
   removeTodo,
+  removeUser,
   storeAnnouncement,
   storeAnswers,
   storeClass,
@@ -20,7 +22,7 @@ import {
   storeTodoList,
   storequestion,
 } from "./FetchAskuala";
-import { getUserData, registerGet } from "./Auth";
+import { getUser, getUserData, registerGet } from "./Auth";
 import {
   getAnnouncement,
   getAnswerQuestion,
@@ -34,29 +36,33 @@ import {
   setTodoList,
 } from "./Student/dashboard";
 import { getCourse, setCreateCourse } from "./supervisor/dashboard";
-import { getClass, setCreateAnnouncement, setCreateClass, setMaterial } from "./teacher/dashboard";
+import { getClass, getCreateClass, setCreateAnnouncement, setCreateClass, setMaterial } from "./teacher/dashboard";
 
 export function* watchFetchAskuala() {
   yield takeLatest("auth/login", userLogin);
   yield takeLatest("auth/signup", userRegister);
   yield takeLatest("auth/getUser", getUsers);
-  yield takeLatest("student/setTodo", todoList);
+  yield takeLatest("auth/setRemoveUser", removeUserList);
 
+  yield takeLatest("student/setTodo", todoList);
   yield takeLatest("student/setRemoveTodo", removeTodoList);
   yield takeLatest("student/getTodoLists", todoFetch);
   yield takeLatest("student/getLibrary", bookLibrary);
   yield takeLatest("student/getAnnounce", classAnnouncement);
-  yield takeLatest("supervisor/setCourse", createCourse);
-  yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
-  yield takeLatest("teacher/setClass", createClass);
-  yield takeLatest("teacher/getCreateClass", getClassCreate);
-  yield takeLatest("teacher/setAnnouncement", createAnnouncement);
   yield takeLatest("student/setQuestionAnswer", createQuestion);
   yield takeLatest("student/getQuestion", getQuestionCreate);
   yield takeLatest("student/setAnswerQuestion", createAnswer);
   yield takeLatest("student/getAnswer", getAnswerCreate);
   yield takeLatest("student/setJoinClass", StudentJoinClass);
+
+  yield takeLatest("supervisor/setCourse", createCourse);
+  yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
+
+  yield takeLatest("teacher/setClass", createClass);
+  yield takeLatest("teacher/getCreateClass", getClassCreate);
+  yield takeLatest("teacher/setAnnouncement", createAnnouncement);
   yield takeLatest("teacher/setMaterialClass", teacherMaterialClass);
+  yield takeLatest("teacher/setRemoveClass", removeClassList);
 }
 
 function* userLogin(action) {
@@ -136,6 +142,10 @@ function* removeTodoList(action) {
   yield setTodo();
 }
 function* removeUserList(action) {
-  yield call(removeTodo, action.payload);
-  yield setTodo();
+  yield call(removeUser, action.payload);
+  yield getUser();
+}
+function* removeClassList(action) {
+  yield call(removeClass, action.payload);
+  yield getCreateClass();
 }

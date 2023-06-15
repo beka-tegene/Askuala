@@ -4,7 +4,10 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getCreateClass } from "../../../Store/teacher/dashboard";
+import {
+  getCreateClass,
+  setRemoveClass,
+} from "../../../Store/teacher/dashboard";
 const TeacherClass = () => {
   const classData = useSelector((state) => state.teacher.classFitch);
   const dispatch = useDispatch();
@@ -17,6 +20,10 @@ const TeacherClass = () => {
   const menuHandler = (index) => {
     setMenuData(!menuData);
     setUseData(index);
+  };
+  const deleteHandler = (id) => {
+    console.log(id);
+    dispatch(setRemoveClass({ data: id }));
   };
   return (
     <div className={style.container}>
@@ -31,6 +38,9 @@ const TeacherClass = () => {
             {menuData && useData === index && (
               <div className={style.menu}>
                 <Link>Show Details</Link>
+                <Link onClick={() => deleteHandler(item._id)}>
+                  Remove Class
+                </Link>
               </div>
             )}
             <div className={style.info}>

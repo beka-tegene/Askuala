@@ -6,6 +6,7 @@ const initialState = {
   Announcement: [],
   AnnouncementFitch: [],
   material: [],
+  removeClassSet:[],
 };
 
 const teachers = createSlice({
@@ -26,6 +27,13 @@ const teachers = createSlice({
         endDay: newData.endDay,
         description: newData.description,
       });
+    },
+    setRemoveClass(state, action) {
+      const newData = action.payload;
+      state.removeClassSet.push({
+        id: newData,
+      });
+      console.log();
     },
     getCreateClass(state) {},
     getClass(state, action) {
@@ -55,7 +63,7 @@ const teachers = createSlice({
 });
 
 export const {
-  setClass,
+  setClass,setRemoveClass,
   setMaterial,
   setMaterialClass,
   setCreateClass,

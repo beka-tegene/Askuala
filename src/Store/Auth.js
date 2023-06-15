@@ -4,6 +4,7 @@ const initialState = {
   InputLogIn: [],
   InputRegister: [],
   user:[],
+  removeUserSet:[],
 };
 
 const auth = createSlice({
@@ -35,10 +36,16 @@ const auth = createSlice({
     getUserData(state ,action){
       state.user = action.payload
     },
+    setRemoveUser(state, action) {
+      const newData = action.payload;
+      state.removeUserSet.push({
+        id: newData,
+      });
+    },
     registerGet(state){}
   },
 });
 
-export const { login, signup, registerGet,getUser,getUserData } = auth.actions;
+export const { login, signup, registerGet,getUser,getUserData,setRemoveUser } = auth.actions;
 
 export default auth.reducer;
