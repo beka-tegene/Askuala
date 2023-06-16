@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from "./HightLight.module.css";
 import {
   MdOutlineSupervisedUserCircle,
   MdOutlineSchool,
 } from "react-icons/md";
 import { FaChalkboardTeacher } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../../../Store/Auth';
 const HightLight = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+  const Student = users?.filter((item) => item.role === "Student");
+  const Teacher = users?.filter((item) => item.role === "Teacher");
   return (
     <div className={classes["hight-container"]}>
       <div className={classes["hight-light"]}>
         <i>
           <MdOutlineSupervisedUserCircle />
         </i>
-        <span>10,026+</span>
+        <span>{users?.length}+</span>
         <hr />
         <span>users</span>
       </div>
@@ -20,7 +29,7 @@ const HightLight = () => {
         <i>
           <FaChalkboardTeacher />
         </i>
-        <span>106+</span>
+        <span>{Teacher.length}+</span>
         <hr />
         <span>Teacher</span>
       </div>
@@ -29,7 +38,7 @@ const HightLight = () => {
         <i>
           <MdOutlineSchool />
         </i>
-        <span>6,053+</span>
+        <span>{Student.length}+</span>
         <hr />
         <span>Student</span>
       </div>

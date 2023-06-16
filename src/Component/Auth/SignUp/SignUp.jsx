@@ -254,7 +254,7 @@ const Register = () => {
             />
             <span>
               By continuing, you agree to our
-              <Link to={"/"}>Terms of Serves</Link>
+              <Link to={"/register"}>Terms of Serves</Link>
             </span>
           </div>
           <div className={classes["sign-btn"]}>

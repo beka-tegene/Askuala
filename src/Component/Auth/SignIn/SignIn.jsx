@@ -91,7 +91,7 @@ const LogIn = () => {
             )}
           </div>
           <div className={classes.forget}>
-            <Link to={"/forget"}>Forget Password?</Link>
+            <Link to={"/login"}>Forget Password?</Link>
           </div>
           <div className={classes["login-btn"]}>
             {formValid ? (
