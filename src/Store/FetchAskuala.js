@@ -21,6 +21,8 @@ export const fetchUserLogin = async (data) => {
   window.localStorage.setItem("userType", useData.data.role);
   window.localStorage.setItem("department", useData.data.department);
   window.localStorage.setItem("userName", useData.data.fullName);
+  
+  return useData.data
 };
 
 export const fetchUserRegister = async (data) => {

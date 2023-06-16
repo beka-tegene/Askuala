@@ -2,13 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Sidebar.module.css";
 import brandIcon from "../../../img/Group 1499.svg";
-import {
-  MdOutlineDashboard,
-} from "react-icons/md";
+import { MdOutlineDashboard } from "react-icons/md";
 import { HiOutlineLogout } from "react-icons/hi";
 import { BiTransfer } from "react-icons/bi";
 
 const Sidebar = () => {
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  };
   return (
     <div className={style["admin-main-container"]}>
       <div className={style["admin-main-icon"]}>
@@ -52,7 +54,7 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className={style["logout"]}>
-        <i>
+        <i onClick={handleLogout}>
           <HiOutlineLogout />
         </i>
       </div>

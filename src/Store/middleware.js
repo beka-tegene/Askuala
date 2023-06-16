@@ -25,7 +25,7 @@ import {
   storeTodoList,
   storequestion,
 } from "./FetchAskuala";
-import { getUser, getUserData, registerGet } from "./Auth";
+import { getUser, getUserData, loginGet, registerGet } from "./Auth";
 import {
   getAnnounce,
   getAnnouncement,
@@ -85,7 +85,7 @@ export function* watchFetchAskuala() {
 
 function* userLogin(action) {
   yield call(fetchUserLogin, action.payload.data);
-  yield registerGet();
+  yield loginGet();
 }
 function* userRegister(action) {
   yield call(fetchUserRegister, action.payload.data);

@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./Answers.module.css";
 import { SiAnswer } from "react-icons/si";
+import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -51,18 +52,27 @@ const Answers = (props) => {
       {/* <h3>Answers</h3> */}
       {filterAnswer[0]?.map((item, index) => (
         <div className={style.answerCards}>
-            <div className={style.answerCounter}>
-              <SiAnswer />
+          <div className={style.answerCounter}>
+            <SiAnswer />
+          </div>
+          <div className={style.answerCard} key={index}>
+            <div className={style.headAnswerCard}>
+              <p>student {item.Name}</p>
+              {/* <p>{item.department}</p> */}
             </div>
-            <div className={style.answerCard} key={index}>
-              <div className={style.headAnswerCard}>
-                <p>student {item.Name}</p>
-                {/* <p>{item.department}</p> */}
-              </div>
-              <h3>{striptags(item.Answer)}</h3>
-              <h6>{moment(item.createdAt).fromNow()}</h6>
-              <hr />
-            </div>
+            <h3>{striptags(item.Answer)}</h3>
+            <h4>
+              <i>
+                <AiFillLike />
+                <>20</>
+              </i>
+              <i>
+                <AiFillDislike />
+                <>6</>
+              </i>
+            </h4>
+            <hr />
+          </div>
         </div>
       ))}
     </div>

@@ -18,6 +18,7 @@ const auth = createSlice({
         password: newData.password,
       });
     },
+    loginGet(state){} ,
     signup(state , action) {
       const newData = action.payload.data;
       state.InputRegister.push({
@@ -42,10 +43,11 @@ const auth = createSlice({
         id: newData,
       });
     },
-    registerGet(state){}
+    registerGet(state){} ,
+
   },
 });
 
-export const { login, signup, registerGet,getUser,getUserData,setRemoveUser } = auth.actions;
+export const { login,loginGet, signup, registerGet,getUser,getUserData,setRemoveUser} = auth.actions;
 
 export default auth.reducer;

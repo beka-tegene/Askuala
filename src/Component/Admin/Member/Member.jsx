@@ -1,11 +1,11 @@
-import React ,{ useEffect }from "react";
+import React, { useEffect } from "react";
 import DataTable from "react-data-table-component";
 import style from "./Member.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, setRemoveUser } from "../../../Store/Auth";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
-function Members() {
+function Members(props) {
   const users = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -53,7 +53,7 @@ function Members() {
       selector: (row) => (
         <div className={style["Action-container"]}>
           <div className={style["Action-edit"]}>
-            <FiEdit />
+            <FiEdit onClick={() => props.onClick(row._id)} />
           </div>
           <div className={style["Action-delete"]}>
             <FaTrashAlt onClick={() => deleteHandler(row._id)} />
@@ -62,6 +62,7 @@ function Members() {
       ),
     },
   ];
+
   const deleteHandler = (id) => {
     dispatch(setRemoveUser({ data: id }));
   };

@@ -11,6 +11,10 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { SiGoogleclassroom } from "react-icons/si";
 
 const Sidebar = () => {
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  };
   return (
     <div className={style["admin-main-container"]}>
       <div className={style["admin-main-icon"]}>
@@ -59,13 +63,13 @@ const Sidebar = () => {
               <i>
                 <MdQuestionAnswer />
               </i>
-              Q/A
+              Confirm
             </NavLink>
           </li>
         </ul>
       </nav>
       <div className={style["logout"]}>
-        <i>
+        <i onClick={handleLogout}>
           <abbr title="Logout">
             <HiOutlineLogout />
           </abbr>

@@ -113,10 +113,24 @@ font-size: 24px;
 
 .answerCard h3 {
   font-weight: 500;
+  color: #2969b8;
 }
-.answerCard h6 {
+.answerCard h4 {
   text-align: right;
   color: #a7a7a7;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.answerCard h4 i{
+  cursor: pointer;
+}
+.answerCard>h4>i:first-child{
+  color: #76be99;
+}
+.answerCard>h4>i:last-child{
+  color: #be7676;
 }
 .headAnswerCard {
   display: flex;
