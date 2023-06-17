@@ -61,6 +61,7 @@ export const storeAnswers = async (data) => {
 
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.localStorage.reload(true)
   }
 };
 
@@ -90,6 +91,8 @@ export const storeAnnouncement = async (data) => {
 
   console.log(useData);
   if (useData.data.status === 'ok') {
+    window.localStorage.reload(true)
+
     // window.location.href = "/login"; redirect it to where ever you want 
   }
 };
@@ -108,6 +111,8 @@ export const storequestion = async (data) => {
 
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.localStorage.reload(true)
+
     // window.location.href = "/login"; redirect it to where ever you want
   }
 };
@@ -122,6 +127,8 @@ export const storeJoin = async (data) => {
   });
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.localStorage.reload(true)
+
     // window.location.href = "/login"; redirect it to where ever you want
   }
 };
@@ -136,6 +143,8 @@ export const storeMaterial = async (data) => {
   });
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.localStorage.reload(true)
+
     // window.location.href = "/login"; redirect it to where ever you want
   }
 };
@@ -150,6 +159,8 @@ export const storeClass = async (data) => {
 
   console.log(useData);
   if (useData.data.status === "ok") {
+    window.localStorage.reload(true)
+
     // window.location.href = "/login"; redirect it to where ever you want
   }
 };
