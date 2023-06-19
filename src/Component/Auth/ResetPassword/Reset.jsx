@@ -28,7 +28,7 @@ const Reset = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data, "userRegister");
-          window.location.href = "/validation";
+          window.location.href = "/login";
         });
     }
   };
