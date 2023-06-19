@@ -1,0 +1,21 @@
+.container {
+  padding: 1rem 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  /* width: 50%; */
+  height: 89vh;
+  /* margin: 0 auto; */
+overflow-y: scroll;
+
+}
+.exam{
+    width: 23rem;
+    height: 60vh;
+    padding: 1rem;
+}
+.exam img{
+    width: 100%;
+    height: 58vh;
+}

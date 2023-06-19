@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../../Component/Client/SuperVisor/Layout/Layout";
+import Layout from "../../../Component/Admin/Layout/Layout";
 import Dashboard from "../../../Component/Client/SuperVisor/Dashboard/Dashboard";
 import CreateCourse from "../../../Component/Client/SuperVisor/Dashboard/CreateAnnouncement";
 import { useDispatch, useSelector } from "react-redux";

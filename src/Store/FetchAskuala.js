@@ -47,7 +47,8 @@ export const storebook = async (data) => {
   });
 
   console.log(useData);
-  if (useData.data.status === "ok") {
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -60,8 +61,8 @@ export const storeAnswers = async (data) => {
   });
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.localStorage.reload(true)
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -74,8 +75,8 @@ export const storeCourse = async (data) => {
   });
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.location.href = "/supervisor/dashboard"
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -90,10 +91,8 @@ export const storeAnnouncement = async (data) => {
 
 
   console.log(useData);
-  if (useData.data.status === 'ok') {
-    window.localStorage.reload(true)
-
-    // window.location.href = "/login"; redirect it to where ever you want 
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -110,10 +109,8 @@ export const storequestion = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.localStorage.reload(true)
-
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -126,10 +123,8 @@ export const storeJoin = async (data) => {
     Accept: "application/json",
   });
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.localStorage.reload(true)
-
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -142,10 +137,8 @@ export const storeMaterial = async (data) => {
     Accept: "application/json",
   });
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.localStorage.reload(true)
-
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -158,10 +151,8 @@ export const storeClass = async (data) => {
   });
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    window.localStorage.reload(true)
-
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -243,8 +234,8 @@ export const removeUser = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -260,8 +251,8 @@ export const removeTodo = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
   
 };
@@ -281,8 +272,8 @@ export const removeClass = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -299,8 +290,8 @@ export const removeCourse = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -316,8 +307,8 @@ export const removeAnnouncement = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -333,8 +324,8 @@ export const removeMaterial= async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };
 
@@ -350,7 +341,7 @@ export const removeQA = async (data) => {
   
 
   console.log(useData);
-  if (useData.data.status === "ok") {
-    // window.location.href = "/login"; redirect it to where ever you want
+  if (useData.status === 200) {
+    window.location.reload(true); 
   }
 };

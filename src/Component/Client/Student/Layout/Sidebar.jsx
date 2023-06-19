@@ -9,6 +9,7 @@ import {
 } from "react-icons/md";
 import { HiOutlineLogout } from "react-icons/hi";
 import { SiGoogleclassroom } from "react-icons/si";
+import { AiOutlineBank } from "react-icons/ai";
 
 const Sidebar = () => {
   const handleLogout = () => {
@@ -53,6 +54,17 @@ const Sidebar = () => {
                 <MdOutlineEventAvailable />
               </i>
               Available Class
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/student/exam-bank"}
+              className={(navData) => (navData.isActive ? style.active : "")}
+            >
+              <i>
+                <AiOutlineBank />
+              </i>
+              Exam Bank
             </NavLink>
           </li>
           <li>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../Component/Admin/Layout/Layout'
+import Layout from '../../Component/Client/SuperVisor/Layout/Layout'
 import Dashboard from '../../Component/Admin/Dashbord/Dashboard'
 
 const DashboardAdmin = () => {
