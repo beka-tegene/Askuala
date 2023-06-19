@@ -5,43 +5,40 @@ import { FaDownload } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMaterialClass } from "../../../../Store/teacher/dashboard";
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+}
+
 const ClassDetails = (props) => {
-  const [title , setTitle] = useState()
-  const dispatch = useDispatch()
-  // const DUMMY_DATA = [
-  //   {
-  //     title: "grade",
-  //   },
-  //   {
-  //     title: "material for student ",
-  //   },
-  //   {
-  //     title: "exam 22/2/2023",
-  //   },
-  //   {
-  //     title: "oxford book",
-  //   },
-  //   {
-  //     title: "grade",
-  //   },
-  //   {
-  //     title: "material for student ",
-  //   },
-  //   {
-  //     title: "exam 22/2/2023",
-  //   },
-  //   {
-  //     title: "oxford book",
-  //   },
-  // ];
+  const [title, setTitle] = useState();
+  const [fileInput, setFileInput] = useState();
+  const dispatch = useDispatch();
+
+  const onFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    setFileInput(base64);
+  };
+
   const submitHandler = (e) => {
-    e.preventDefault()
-    const Classid = props.data._id
+    e.preventDefault();
+    const Classid = props.data._id;
     dispatch(
       setMaterialClass({
         data: {
           title,
-          Classid
+          Classid,
+          fileInput,
         },
       })
     );
@@ -96,9 +93,15 @@ const ClassDetails = (props) => {
             ))}
           </div>
           <form action="" onSubmit={submitHandler} className={style.form}>
-            <div className={style.inputTitle}>
-              <label htmlFor="">Title</label>
-              <input type="text" onChange={(e) => setTitle(e.target.value)} />
+            <div className={style.formControl}>
+              <div className={style.inputTitle}>
+                <label htmlFor="">Title</label>
+                <input type="text" onChange={(e) => setTitle(e.target.value)} />
+              </div>
+              <div className={style.inputTitle}>
+                <label htmlFor="">file</label>
+                <input type="file" onChange={(e) => onFileHandler(e)} />
+              </div>
             </div>
             <div className={style.btn}>
               <button>Send</button>

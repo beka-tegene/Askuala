@@ -29,7 +29,7 @@
   flex-wrap: nowrap;
 }
 .left {
-  flex: 0 0 50%;
+  flex: 0 0 45%;
 }
 .info {
   display: flex;
@@ -80,6 +80,10 @@
 .form{
   display: flex;
   flex-direction: column;
+  gap: .5rem;
+}
+.formControl{
+  display: flex;
   gap: .5rem;
 }
 .inputTitle input{
