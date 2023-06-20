@@ -2,9 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Sidebar.module.css";
 import brandIcon from "../../../img/Group 1499.svg";
-import { MdOutlineDashboard } from "react-icons/md";
+import { MdOutlineDashboard ,MdQuestionAnswer} from "react-icons/md";
 import { HiOutlineLogout } from "react-icons/hi";
-import { BiTransfer } from "react-icons/bi";
+import { FiUsers } from "react-icons/fi";
+import { SiGoogleclassroom } from "react-icons/si";
 
 const Sidebar = () => {
   const handleLogout = () => {
@@ -35,7 +36,7 @@ const Sidebar = () => {
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
-                <BiTransfer />
+                <FiUsers />
               </i>
               Member
             </NavLink>
@@ -46,9 +47,20 @@ const Sidebar = () => {
               className={(navData) => (navData.isActive ? style.active : "")}
             >
               <i>
-                <BiTransfer />
+                <SiGoogleclassroom />
               </i>
               Class
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/admin/question-answer"}
+              className={(navData) => (navData.isActive ? style.active : "")}
+            >
+              <i>
+                <MdQuestionAnswer />
+              </i>
+              Conference
             </NavLink>
           </li>
         </ul>

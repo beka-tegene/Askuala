@@ -16,7 +16,7 @@
 }
 .userNav-menu {
   display: flex;
-  align-items: center;
+  align-items:last baseline;
 
 }
 

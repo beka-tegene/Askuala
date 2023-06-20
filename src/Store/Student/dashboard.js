@@ -4,6 +4,7 @@ const initialState = {
   todoSet: [],
   todoGet: [],
   book: [],
+  setBook: [],
   announcement: [],
   question: [],
   getQuestions: [],
@@ -37,6 +38,16 @@ const students = createSlice({
     getTodoLists(state) {},
     getTodos(state, action) {
       state.todoSet = action.payload;
+    },
+    setBooks(state) {},
+    setBooksList(state, action) {
+      const newData = action.payload;
+      state.setBook.push({
+        BookName: newData.BookName,
+        BookAuthor: newData.BookAuthor,
+        BookDepratmen: newData.BookDepratmen,
+        fileInput: newData.fileInput,
+      });
     },
     getLibrary(state) {},
     getLibraryBook(state, action) {
@@ -100,7 +111,11 @@ const students = createSlice({
 });
 
 export const {
-  setJoin,setRemoveAnnouncement,setRemoveQuestion,
+  setJoin,
+  setRemoveAnnouncement,
+  setRemoveQuestion,
+  setBooksList,
+  setBooks,
   setJoinClass,
   setRemoveTodo,
   setTodoList,

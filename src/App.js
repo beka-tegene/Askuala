@@ -25,6 +25,8 @@ import Forget from "./Component/Auth/Forget/Forget";
 import Layout from "./Component/Layout/Layout";
 import Footer from "./Component/Footer/Footer";
 import Reset from "./Component/Auth/ResetPassword/Reset";
+import QuestionStudents from "./Page/Admin/QuestionStudent";
+import AnswerStudents from "./Page/Admin/AnswerStudent";
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
       <Route path="/admin/dashboard" element={<DashboardSuperVisor />} />
       <Route path="/admin/member" element={<MemberAdmin />} />
       <Route path="/admin/classes" element={<ClassTeachers />} />
+      <Route path="/admin/question-answer" element={<QuestionStudents />} />
+      <Route path="/admin/question-answer/:id" element={<AnswerStudents />} />
 
       <Route element={<NotFound />} path="/*" />
     </Routes>

@@ -5,6 +5,7 @@ import { FaDownload } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMaterialClass } from "../../../../Store/teacher/dashboard";
+import download from "downloadjs";
 
 function convertToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -30,6 +31,12 @@ const ClassDetails = (props) => {
     setFileInput(base64);
   };
 
+  const handleDownload = (file) => {
+    const fileName = `${file.Title}.txt`; 
+    const base64Data = file.File; 
+
+    download(base64Data, fileName, 'application/octet-stream');
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     const Classid = props.data._id;
@@ -85,7 +92,7 @@ const ClassDetails = (props) => {
                   <h5>{item.Title}</h5>
                 </div>
                 <h6>
-                  <i>
+                  <i onClick={() => handleDownload(item)}>
                     <FaDownload />
                   </i>
                 </h6>

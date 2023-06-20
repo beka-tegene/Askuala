@@ -23,6 +23,7 @@ import {
   storeJoin,
   storeMaterial,
   storeTodoList,
+  storebook,
   storequestion,
 } from "./FetchAskuala";
 import { getUser, getUserData, loginGet, registerGet } from "./Auth";
@@ -35,6 +36,7 @@ import {
   getQuestionAnswer,
   getTodos,
   setAnswer,
+  setBooks,
   setJoin,
   setQuestion,
   setTodo,
@@ -63,6 +65,7 @@ export function* watchFetchAskuala() {
   yield takeLatest("student/setRemoveTodo", removeTodoList);
   yield takeLatest("student/getTodoLists", todoFetch);
   yield takeLatest("student/getLibrary", bookLibrary);
+  yield takeLatest("student/setBooksList", setBookLibrary);
   yield takeLatest("student/getAnnounce", classAnnouncement);
   yield takeLatest("student/setQuestionAnswer", createQuestion);
   yield takeLatest("student/getQuestion", getQuestionCreate);
@@ -102,6 +105,10 @@ function* todoFetch() {
 function* bookLibrary() {
   const books = yield call(fetchBook);
   yield put(getLibraryBook(books));
+}
+function* setBookLibrary(action) {
+  yield call(storebook, action.payload.data);
+  yield setBooks();
 }
 function* createAnnouncement(action) {
   yield call(storeAnnouncement, action.payload.data);

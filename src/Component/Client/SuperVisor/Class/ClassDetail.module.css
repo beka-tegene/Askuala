@@ -29,7 +29,7 @@
   flex-wrap: nowrap;
 }
 .left {
-  flex: 0 0 45%;
+  flex: 0 0 50%;
 }
 .info {
   display: flex;
@@ -72,38 +72,4 @@
 }
 .library i{
   font-size: 24px;
-}
-.inputTitle{
-  display: flex;
-  flex-direction: column;
-}
-.form{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-.formControl{
-  display: flex;
-  gap: .5rem;
-}
-.inputTitle input{
-  padding:  .5rem 1rem;
-  border-radius: 5px;
-  outline: none;
-  font-size: 15px;
-}
-.btn{
-  text-align: right;
-}
-.btn button{
-  padding: .5rem 1rem ;
-  font: inherit;
-  background-color: #2F6296;
-  color: #ffffff;
-  border-radius: 7px;
-  border: none;
-  cursor: pointer;
-}
-.btn button:active{
-  transform: scale(.9);
 }
