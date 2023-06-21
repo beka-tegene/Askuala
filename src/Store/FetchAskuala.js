@@ -31,6 +31,7 @@ export const fetchUserRegister = async (data) => {
     ContentType: "application/json",
     Accept: "application/json",
   });
+  console.log(useData);
   if (useData.data.status === "ok") {
     window.location.href = "/login";
   }else{
@@ -341,7 +342,7 @@ export const removeQA = async (data) => {
 
   console.log(useData);
   if (useData.status === 200) {
-    window.location.reload(true); 
+    window.location.href = '/admin/question-answer' 
   }
 };
 

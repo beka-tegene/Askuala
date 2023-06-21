@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCreateClass } from "../../../../Store/teacher/dashboard";
-const TeacherClass = () => {
+const TeacherClass = (props) => {
   const classData = useSelector((state) => state.teacher.classFitch);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,7 +28,7 @@ const TeacherClass = () => {
             </div>
             {menuData && useData === index && (
               <div className={style.menu}>
-                <Link>Show Details</Link>
+                <Link onClick={() => props.onClick(item)}>Show Details</Link>
               </div>
             )}
             <div className={style.info}>
@@ -65,7 +65,7 @@ const TeacherClass = () => {
             </div>
             <div className={style.info}>
               <h5>Description </h5>
-              <h4>{item.Description}</h4>
+              <h4>{item.Description.slice(0, 50)}</h4>
             </div>
           </div>
         ))}

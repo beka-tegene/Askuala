@@ -1,0 +1,50 @@
+.container {
+  padding: 0 2% 0 14rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #2f6296;
+  color: white;
+}
+.books {
+  padding: 1rem 0;
+}
+.send {
+  display: flex;
+  align-items:last baseline;
+  gap: 1rem;
+}
+.formControl {
+  display: flex;
+  flex-direction: column;
+}
+.formControl label {
+  font-size: 13px;
+}
+.formControl input {
+  padding: 0.2rem 0.5rem;
+  font-size: 14px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+}
+.btn {
+  text-align: right;
+}
+.btn button {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  background-color: #272727;
+  color: #ffffff;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+.btn button:active {
+  transform: scale(0.9);
+}

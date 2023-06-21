@@ -6,7 +6,7 @@ const initialState = {
   Announcement: [],
   AnnouncementFitch: [],
   material: [],
-  removeClassSet:[],
+  removeClassSet: [],
 };
 
 const teachers = createSlice({
@@ -50,20 +50,22 @@ const teachers = createSlice({
         announcerName: newData.announcerName,
       });
     },
-    
+
     setMaterial(state) {},
     setMaterialClass(state, action) {
       const newData = action.payload;
       state.material.push({
         Classid: newData.Classid,
         title: newData.title,
+        fileInput: newData.fileInput,
       });
     },
   },
 });
 
 export const {
-  setClass,setRemoveClass,
+  setClass,
+  setRemoveClass,
   setMaterial,
   setMaterialClass,
   setCreateClass,

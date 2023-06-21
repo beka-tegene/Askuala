@@ -5,6 +5,7 @@ import CreateClass from "../../../Component/Client/Teacher/Dashboard/CreateClass
 import { useDispatch, useSelector } from "react-redux";
 import { getCreateCourse } from "../../../Store/supervisor/dashboard";
 import { getCreateClass } from "../../../Store/teacher/dashboard";
+import Book from "../../../Component/Client/Teacher/Books/Book";
 
 const DashboardTeacher = () => {
   const [display, setDisplay] = useState(false);
@@ -29,6 +30,7 @@ const DashboardTeacher = () => {
       {display && (
         <CreateClass display={() => hiddenHandler()} courseData={courseData} />
       )}
+      <Book />
     </Layout>
   );
 };

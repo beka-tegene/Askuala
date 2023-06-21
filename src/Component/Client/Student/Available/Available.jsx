@@ -12,12 +12,17 @@ const Available = () => {
   useEffect(() => {
     dispatch(getCreateClass());
   }, [dispatch]);
-  const filterClass = classData?.filter(
-    (item) =>
-      item.courseDept === department &&
-      (item.Member?.some((item) => item?.StudentId !== id) ||
-        item.Member?.length === 0)
+
+  const filteredClasses = classData.filter((classItem) => {
+    const hasMemberWithId123 = classItem.Member?.some(
+      (member) => member.StudentId === id
+    );
+    return !hasMemberWithId123;
+  });
+  const filterClass = filteredClasses?.filter(
+    (item) => item.courseDept === department
   );
+  console.log(filterClass);
 
   const [joinData, setJoinData] = useState(false);
   const [useJoin, setUseJoin] = useState();

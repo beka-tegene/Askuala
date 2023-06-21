@@ -2,7 +2,13 @@ import React from "react";
 import style from "./ClassDetail.module.css";
 import { RiBook2Fill } from "react-icons/ri";
 import { FaDownload } from "react-icons/fa";
+import download from "downloadjs";
 const ClassDetail = (props) => {
+  const handleDownload = (file) => {
+    const fileName = `${file.Title}.txt`; 
+    const base64Data = file.File; 
+    download(base64Data, fileName, 'application/octet-stream');
+  };
   return (
     <div className={style.container}>
       <div className={style.dropBack} onClick={() => props.display()}></div>
@@ -53,14 +59,23 @@ const ClassDetail = (props) => {
                   <h5>{item.Title}</h5>
                 </div>
                 <h6>
-                  <i>
+                  <i onClick={() => handleDownload(item)}>
                     <FaDownload />
                   </i>
                 </h6>
               </div>
             ))}
           </div>
+          <form className={style.forms} >
+            <div className={style.formControl}>
+              <textarea name="" id="" cols="30" rows="1"></textarea>
+            </div>
+            <div className={style.btn}>
+              <button>Send</button>
+            </div>
+          </form>
         </div>
+        
       </div>
     </div>
   );

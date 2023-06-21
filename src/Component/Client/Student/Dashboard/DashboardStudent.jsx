@@ -6,6 +6,7 @@ import { FaDownload } from "react-icons/fa";
 import { setRemoveTodo, setTodo } from "../../../../Store/Student/dashboard";
 import { useDispatch } from "react-redux";
 import moment from "moment";
+import download from "downloadjs";
 
 const DashboardStudent = (props) => {
   const Username = localStorage.getItem("userName");
@@ -32,6 +33,11 @@ const DashboardStudent = (props) => {
   const limitedBook = props.Books?.slice(0, 5);
   const deleteTodoHandler = (id) => {
     dispatch(setRemoveTodo({ data: id }));
+  };
+  const handleDownload = (file) => {
+    const fileName = `${file.BookName}.txt`;
+    const base64Data = file.Books;
+    download(base64Data, fileName, "application/octet-stream");
   };
   return (
     <div className={style.container}>
@@ -73,36 +79,49 @@ const DashboardStudent = (props) => {
                 <h4>Library</h4>
                 <p></p>
               </div>
-              {limitedBook.map((item, index) => (
-                <div className={style.library} key={index}>
-                  <div>
-                    <i>
-                      <RiBook2Fill />
-                    </i>
-                    <h5>{item.BookName}</h5>
+              {limitedBook.length === 0 ? (
+                <p>There is no book suggestion!!</p>
+              ) : (
+                limitedBook.map((item, index) => (
+                  <div className={style.library} key={index}>
+                    <div>
+                      <i>
+                        <RiBook2Fill />
+                      </i>
+                      <h5>{item.BookName}</h5>
+                    </div>
+                    <h6>
+                      <i onClick={() => handleDownload(item)}>
+                        <FaDownload />
+                      </i>
+                    </h6>
                   </div>
-                  <h6>
-                    <i>
-                      <FaDownload />
-                    </i>
-                  </h6>
-                </div>
-              ))}
+                ))
+              )}
             </div>
             <div className={style.chart}>
               <div className={style.chartHead}>
                 <h4>Announcement</h4>
                 <p>New</p>
               </div>
-              {limitedData.map((item, index) => (
-                <div className={style.announce} key={index}>
-                  <h4>{item.Announcement}</h4>
-                  <h4>Arrival time {item.Time}</h4>
-                  <p>{item.ClassLink}</p>
-                  <h5>{item.AnonouncerName}</h5>
-                  <h5>{moment(item.createdAt).fromNow()}</h5>
-                </div>
-              ))}
+              {limitedData.length === 0 ? (
+                <p>There is no Announcement!!</p>
+              ) : (
+                limitedData.map((item, index) => (
+                  <div className={style.announce} key={index}>
+                    <h4>{item.AnnouncementTitle}</h4>
+                    <h4>{item.Announcement}</h4>
+                    <h4>Arrival time {item.Time}</h4>
+                    <p
+                      onClick={() => window.open(`${item.ClassLink}`, "_blank")}
+                    >
+                      {item.ClassLink}
+                    </p>
+                    <h5>{item.AnonouncerName}</h5>
+                    <h5>{moment(item.createdAt).fromNow()}</h5>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

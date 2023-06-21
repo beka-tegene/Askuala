@@ -75,7 +75,7 @@ const Sidebar = () => {
               <i>
                 <MdQuestionAnswer />
               </i>
-              Confirm
+              Conference
             </NavLink>
           </li>
         </ul>

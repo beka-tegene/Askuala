@@ -3,7 +3,7 @@ import style from "./Hosted.module.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCreateClass } from "../../../../Store/teacher/dashboard";
+import { getCreateClass, setRemoveClass } from "../../../../Store/teacher/dashboard";
 const Hosted = (props) => {
   const id = localStorage.getItem("id");
   const classData = useSelector((state) => state.teacher.classFitch);
@@ -17,6 +17,10 @@ const Hosted = (props) => {
   const menuHandler = (index) => {
     setMenuData(!menuData);
     setUseData(index);
+  };
+  const deleteHandler = (id) => {
+    console.log(id);
+    dispatch(setRemoveClass({ data: id }));
   };
   return (
     <div className={style.container}>
@@ -33,6 +37,9 @@ const Hosted = (props) => {
                 <Link onClick={() => props.onClick(item)}>Show Details</Link>
                 <Link to={`/teacher/announcement/${item._id}`}>
                   Announcement
+                </Link>
+                <Link onClick={() => deleteHandler(item._id)}>
+                  Remove Class
                 </Link>
               </div>
             )}

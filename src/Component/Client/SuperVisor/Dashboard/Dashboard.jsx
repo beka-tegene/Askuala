@@ -6,14 +6,26 @@ import { MdAddCircleOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { FaTrashAlt } from "react-icons/fa";
 import { setRemoveCourse } from "../../../../Store/supervisor/dashboard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUser } from "../../../../Store/Auth";
+import { getCreateClass } from "../../../../Store/teacher/dashboard";
 const Dashboard = (props) => {
   const Username = localStorage.getItem("userName");
   const userType = localStorage.getItem("userType");
   const id = localStorage.getItem("id");
   const filterCourse = props.courseData.filter((item => item.CourseCreator === Username )) 
   const dispatch = useDispatch();
-
+  const users = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+  const classData = useSelector((state) => state.teacher.classFitch);
+  useEffect(() => {
+    dispatch(getCreateClass());
+  }, [dispatch]);
+  const Student = users?.filter((item) => item.role === "Student");
+  const Teacher = users?.filter((item) => item.role === "Teacher");
   const columns = [
     {
       name: "Course Id",
@@ -56,7 +68,7 @@ const Dashboard = (props) => {
       selector: (row) => (
         <div className={style["Action-container"]}>
           <div className={style["Action-edit"]}>
-            <FiEdit />
+            <FiEdit onClick={() => props.onEditClick(row._id)}/>
           </div>
           <div className={style["Action-delete"]}>
             <FaTrashAlt onClick={() => deleteHandler(row._id)} />
@@ -66,7 +78,6 @@ const Dashboard = (props) => {
     },
   ];
   const deleteHandler = (id) => {
-    console.log(id);
     dispatch(setRemoveCourse({ data: id }));
   };
 
@@ -107,15 +118,15 @@ const Dashboard = (props) => {
           </div>
           <div className={style.right}>
             <div className={style.average}>
-              <h1>23</h1>
+              <h1>{classData.length}</h1>
               <h5>Classes</h5>
             </div>
             <div className={style.attendance}>
-              <h1>19</h1>
+              <h1>{Teacher.length}</h1>
               <h5>Teachers</h5>
             </div>
             <div className={style.grade}>
-              <h1>756</h1>
+              <h1>{Student.length}</h1>
               <h5>Students</h5>
             </div>
           </div>
