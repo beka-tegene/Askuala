@@ -2,6 +2,7 @@ import React from 'react'
 import style from './EditAnnouncement.module.css'
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { setUpdateCourse } from '../../../../Store/supervisor/dashboard';
 const EditAnnouncement = (props) => {
 
     const Username = localStorage.getItem("userName");
@@ -23,6 +24,7 @@ const EditAnnouncement = (props) => {
   console.log(props.useData);
   const submitHandler = (e) => {
     e.preventDefault();
+    const _id = props.useData
     const courseId = forms.courseId; 
     const courseName = forms.courseName;
     const teacherId = forms.teacherId;
@@ -31,17 +33,18 @@ const EditAnnouncement = (props) => {
     const courseDept = forms.courseDept;
     const CourseCreator = Username;
     dispatch(
-    //   setCourse({
-    //     data: {
-    //       courseId,
-    //       courseName,
-    //       teacherId,
-    //       ETCS,
-    //       creaditHours,
-    //       courseDept,
-    //       CourseCreator,
-    //     },
-    //   })
+      setUpdateCourse({
+        data: {
+          _id,
+          courseId,
+          courseName,
+          teacherId,
+          ETCS,
+          creaditHours,
+          courseDept,
+          CourseCreator,
+        },
+      })
     );
   };
 

@@ -81,13 +81,13 @@ export function* watchFetchAskuala() {
 
   yield takeLatest("supervisor/setCourse", createCourse);
   yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
-  // yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
+  yield takeLatest("supervisor/setUpdateCourse", updateCourseList);
   yield takeLatest("supervisor/setRemoveCourse", removeCourseList);
 
   yield takeLatest("teacher/setClass", createClass);
   yield takeLatest("teacher/getCreateClass", getClassCreate);
   yield takeLatest("teacher/setAnnouncement", createAnnouncement);
-  // yield takeLatest("teacher/setAnnouncement", createAnnouncement);
+  yield takeLatest("teacher/setUpdateAnnouncement", updateAnnouncementList);
   yield takeLatest("teacher/setMaterialClass", teacherMaterialClass);
   yield takeLatest("teacher/setRemoveClass", removeClassList);
 }
@@ -203,7 +203,7 @@ function* updateAnnouncementList(action) {
   yield call(UpdateAnnouncement, action.payload);
   yield getAnnounce();
 }
-// function* updateCourseList(action) {
-//   yield call(UpdateCourse, action.payload);
-//   yield getQuestion();
-// }
+function* updateCourseList(action) {
+  yield call(UpdateCourse, action.payload);
+  yield getCreateCourse();
+}

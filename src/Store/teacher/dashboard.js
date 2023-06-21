@@ -7,6 +7,7 @@ const initialState = {
   AnnouncementFitch: [],
   material: [],
   removeClassSet: [],
+  UpdateAnnouncement:[]
 };
 
 const teachers = createSlice({
@@ -50,7 +51,18 @@ const teachers = createSlice({
         announcerName: newData.announcerName,
       });
     },
-
+    setUpdateAnnouncement(state, action) {
+      const newData = action.payload.data;
+      state.UpdateAnnouncement.push({
+        _id: newData._id,
+        classId: newData.classId,
+        title: newData.title,
+        startedTime: newData.startedTime,
+        URL: newData.URL,
+        message: newData.message,
+        announcerName: newData.announcerName,
+      });
+    },
     setMaterial(state) {},
     setMaterialClass(state, action) {
       const newData = action.payload;
@@ -72,7 +84,7 @@ export const {
   getClass,
   getCreateClass,
   setCreateAnnouncement,
-  setAnnouncement,
+  setAnnouncement,setUpdateAnnouncement,
 } = teachers.actions;
 
 export default teachers.reducer;

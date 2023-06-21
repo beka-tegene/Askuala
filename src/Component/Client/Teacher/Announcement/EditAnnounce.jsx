@@ -3,8 +3,9 @@ import style from "./EditAnnounce.module.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { setUpdateAnnouncement } from "../../../../Store/teacher/dashboard";
 const EditAnnounce = (props) => {
-    const { _id } = useParams();
+    const { id } = useParams();
     const Username = localStorage.getItem("userName");
     const [forms, setForms] = useState({
       title: "",
@@ -22,23 +23,25 @@ const EditAnnounce = (props) => {
     console.log(props.useData);
     const submitHandler = (e) => {
       e.preventDefault();
+      const _id = props.useData
       const title = forms.title;
-      const classId = _id;
+      const classId = id;
       const startedTime = forms.startedTime;
       const URL = forms.URL;
       const message = forms.message;
       const announcerName = Username;
       dispatch(
-        // setAnnouncement({
-        //   data: {
-        //     classId,
-        //     title,
-        //     startedTime,
-        //     URL,
-        //     message,
-        //     announcerName,
-        //   },
-        // })
+        setUpdateAnnouncement({
+          data: {
+            _id,
+            classId,
+            title,
+            startedTime,
+            URL,
+            message,
+            announcerName,
+          },
+        })
       );
     };
   return (
