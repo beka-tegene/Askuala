@@ -68,7 +68,7 @@ const Dashboard = (props) => {
       selector: (row) => (
         <div className={style["Action-container"]}>
           <div className={style["Action-edit"]}>
-            <FiEdit />
+            <FiEdit onClick={() => props.onEditClick(row._id)}/>
           </div>
           <div className={style["Action-delete"]}>
             <FaTrashAlt onClick={() => deleteHandler(row._id)} />
@@ -78,7 +78,6 @@ const Dashboard = (props) => {
     },
   ];
   const deleteHandler = (id) => {
-    console.log(id);
     dispatch(setRemoveCourse({ data: id }));
   };
 

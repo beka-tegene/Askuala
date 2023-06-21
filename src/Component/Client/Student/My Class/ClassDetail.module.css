@@ -15,21 +15,21 @@
 }
 .classes {
   position: fixed;
-  top: 7%;
-  left: 17%;
-  right: 17%;
+  top: 80px;
+  right: 10px;
+  left: 210px;
+  bottom: 10px;
   z-index: 4;
-  width: 70%;
   background-color: #ffffff;
   color: #272727;
   padding: 1rem;
   border-radius: 10px;
   display: flex;
   align-items: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .left {
-  flex: 0 0 50%;
+  flex: 1 1 50%;
 }
 .info {
   display: flex;
@@ -39,14 +39,15 @@
   color: #222c65;
 }
 .right {
-  flex: 0 0 50%;
+  flex: 1 1 50%;
 }
 .librarian {
   border: 1px solid #222c65;
-  max-height: 50vh;
+  max-height: 40vh;
   overflow-y: scroll;
   padding: 0.5rem;
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   gap: 0.5rem;
   border-radius: 7px;
@@ -72,4 +73,35 @@
 }
 .library i{
   font-size: 24px;
+}
+.forms{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.formControl{
+  width: 90%;
+}
+.formControl textarea{
+  outline: none;
+  resize: none;
+  padding: .2rem .6rem;
+  font-size: 16px;
+  border-radius: 7px;
+  width: 100%;
+}
+.btn {
+  text-align: right;
+}
+.btn button {
+  padding: 0.2rem .6rem;
+  font: inherit;
+  background-color: #272727;
+  color: #ffffff;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+.btn button:active {
+  transform: scale(0.9);
 }

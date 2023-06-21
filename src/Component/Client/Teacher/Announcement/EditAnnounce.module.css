@@ -1,0 +1,99 @@
+.container {
+  width: 100%;
+  position: absolute;
+}
+.dropBack {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  background-color: #272727;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  color: #ffffff;
+}
+.classes {
+  position: fixed;
+  top: 5%;
+  left: 30%;
+  z-index: 4;
+  width: 50%;
+  background-color: #ffffff;
+  color: #272727;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.class {
+  width: 90%;
+  margin: 0 auto;
+}
+.form {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.formControl {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+.formControl select {
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  border-radius: 7px;
+  outline: none;
+  flex: 1 1 50%;
+}
+.formControl textarea {
+  outline: none;
+  resize: none;
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  border-radius: 7px;
+  flex: 1 1 100%;
+}
+.formControl input {
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  font-size: 15px;
+  border: 1px solid #272727;
+  flex: 1 1 100%;
+  outline: none;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.btn button {
+  font: inherit;
+  width: 25%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.btn button:first-child {
+  background-color: #ffe1e1;
+  border: 1px solid #e46b6b;
+  color: #e46b6b;
+}
+.btn button:first-child:hover {
+  background-color: #e46b6b;
+  border: 1px solid #ffe1e1;
+  color: #ffe1e1;
+}
+.btn button:last-child:hover {
+  background-color: #272727;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+.btn button:last-child {
+  background-color: #ffffff;
+  border: 1px solid #272727;
+  color: #272727;
+}

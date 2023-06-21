@@ -65,7 +65,7 @@ const TeacherClass = (props) => {
             </div>
             <div className={style.info}>
               <h5>Description </h5>
-              <h4>{item.Description}</h4>
+              <h4>{item.Description.slice(0, 50)}</h4>
             </div>
           </div>
         ))}

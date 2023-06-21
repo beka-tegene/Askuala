@@ -109,6 +109,7 @@ const DashboardStudent = (props) => {
               ) : (
                 limitedData.map((item, index) => (
                   <div className={style.announce} key={index}>
+                    <h4>{item.AnnouncementTitle}</h4>
                     <h4>{item.Announcement}</h4>
                     <h4>Arrival time {item.Time}</h4>
                     <p

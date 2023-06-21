@@ -66,7 +66,16 @@ const ClassDetail = (props) => {
               </div>
             ))}
           </div>
+          <form className={style.forms} >
+            <div className={style.formControl}>
+              <textarea name="" id="" cols="30" rows="1"></textarea>
+            </div>
+            <div className={style.btn}>
+              <button>Send</button>
+            </div>
+          </form>
         </div>
+        
       </div>
     </div>
   );
