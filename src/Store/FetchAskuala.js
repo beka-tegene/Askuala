@@ -39,7 +39,7 @@ export const fetchUserRegister = async (data) => {
 };
 
 export const storebook = async (data) => {
-  console.log(data);
+  console.log(data);x
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
     ContentType: "application/json",
@@ -328,7 +328,6 @@ export const removeMaterial= async (data) => {
     window.location.reload(true); 
   }
 };
-
 export const removeQA = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/removeQA", {
@@ -345,3 +344,55 @@ export const removeQA = async (data) => {
     window.location.reload(true); 
   }
 };
+
+export const UpdateCourse = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/UpdateCourse", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  
+  
+
+  console.log(useData);
+  if (useData.status === 200) {
+    window.location.reload(true); 
+  }
+};
+
+export const UpdateAccount = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/UpdateAccount", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  
+  
+
+  console.log(useData);
+  if (useData.status === 200) {
+    window.location.reload(true); 
+  }
+};
+
+export const Updateannouncement = async (data) => {
+  console.log(data);
+  const useData = await axios.post("http://localhost:5000/Updateannouncement", {
+    data,
+    ContentType: "application/json",
+    Accept: "application/json",
+  });
+
+  
+  
+
+  console.log(useData);
+  if (useData.status === 200) {
+    window.location.reload(true); 
+  }
+};
+

@@ -20,7 +20,7 @@ const Reset = () => {
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
         },
-        body: JSON.stringify({
+        body: JSON.stringify({  
           email,
           newPassword,
         }),
