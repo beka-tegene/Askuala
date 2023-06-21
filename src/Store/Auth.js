@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   InputLogIn: [],
   InputRegister: [],
+  inputUpdate: [],
   user:[],
   removeUserSet:[],
 };
@@ -35,7 +36,7 @@ const auth = createSlice({
     },
     updateListAccount(state , action) {
       const newData = action.payload.data;
-      state.InputRegister.push({
+      state.inputUpdate.push({
         _id: newData._id,
         id: newData.id,
         FullName: newData.FullName,

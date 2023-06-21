@@ -199,10 +199,10 @@ function* updateUserAccount(action) {
   yield call(UpdateAccount, action.payload);
   yield getUser();
 }
-// function* updateAnnouncementList(action) {
-//   yield call(UpdateAnnouncement, action.payload);
-//   yield getQuestion();
-// }
+function* updateAnnouncementList(action) {
+  yield call(UpdateAnnouncement, action.payload);
+  yield getAnnounce();
+}
 // function* updateCourseList(action) {
 //   yield call(UpdateCourse, action.payload);
 //   yield getQuestion();
