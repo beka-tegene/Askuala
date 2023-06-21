@@ -360,7 +360,7 @@ export const UpdateCourse = async (data) => {
 
   console.log(useData);
   if (useData.status === 200) {
-    // window.location.reload(true); 
+    window.location.reload(true); 
   }
 };
 
@@ -377,7 +377,7 @@ export const UpdateAccount = async (data) => {
 
   console.log(useData);
   if (useData.status === 200) {
-    // window.location.reload(true); 
+    window.location.reload(true); 
   }
 };
 
@@ -394,7 +394,7 @@ export const UpdateAnnouncement = async (data) => {
 
   console.log(useData);
   if (useData.status === 200) {
-    // window.location.reload(true); 
+    window.location.reload(true); 
   }
 };
 
