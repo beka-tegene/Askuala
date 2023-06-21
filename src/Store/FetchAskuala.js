@@ -377,11 +377,11 @@ export const UpdateAccount = async (data) => {
 
   console.log(useData);
   if (useData.status === 200) {
-    window.location.reload(true); 
+    // window.location.reload(true); 
   }
 };
 
-export const Updateannouncement = async (data) => {
+export const UpdateAnnouncement = async (data) => {
   console.log(data);
   const useData = await axios.post("http://localhost:5000/Updateannouncement", {
     data,

@@ -1,5 +1,8 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import {
+  UpdateAccount,
+  UpdateCourse,
+  UpdateAnnouncement,
   fetchAnnouncement,
   fetchAnswer,
   fetchBook,
@@ -60,6 +63,7 @@ export function* watchFetchAskuala() {
   yield takeLatest("auth/signup", userRegister);
   yield takeLatest("auth/getUser", getUsers);
   yield takeLatest("auth/setRemoveUser", removeUserList);
+  yield takeLatest("auth/updateListAccount", updateUserAccount);
 
   yield takeLatest("student/setTodo", todoList);
   yield takeLatest("student/setRemoveTodo", removeTodoList);
@@ -77,11 +81,13 @@ export function* watchFetchAskuala() {
 
   yield takeLatest("supervisor/setCourse", createCourse);
   yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
+  // yield takeLatest("supervisor/getCreateCourse", getCourseCreate);
   yield takeLatest("supervisor/setRemoveCourse", removeCourseList);
 
   yield takeLatest("teacher/setClass", createClass);
   yield takeLatest("teacher/getCreateClass", getClassCreate);
   yield takeLatest("teacher/setAnnouncement", createAnnouncement);
+  // yield takeLatest("teacher/setAnnouncement", createAnnouncement);
   yield takeLatest("teacher/setMaterialClass", teacherMaterialClass);
   yield takeLatest("teacher/setRemoveClass", removeClassList);
 }
@@ -186,3 +192,18 @@ function* removeQuestionList(action) {
   yield call(removeQA, action.payload);
   yield getQuestion();
 }
+
+
+
+function* updateUserAccount(action) {
+  yield call(UpdateAccount, action.payload);
+  yield getUser();
+}
+// function* updateAnnouncementList(action) {
+//   yield call(UpdateAnnouncement, action.payload);
+//   yield getQuestion();
+// }
+// function* updateCourseList(action) {
+//   yield call(UpdateCourse, action.payload);
+//   yield getQuestion();
+// }

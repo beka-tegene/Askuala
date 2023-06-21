@@ -33,6 +33,19 @@ const auth = createSlice({
         cPassword: newData.cPassword,
       });
     },
+    updateListAccount(state , action) {
+      const newData = action.payload.data;
+      state.InputRegister.push({
+        _id: newData._id,
+        id: newData.id,
+        FullName: newData.FullName,
+        email: newData.email,
+        phoneNumber: newData.phoneNumber,
+        gender: newData.gender,
+        role: newData.role,
+        department: newData.department,
+      });
+    },
     getUser(state){},
     getUserData(state ,action){
       state.user = action.payload
@@ -48,6 +61,6 @@ const auth = createSlice({
   },
 });
 
-export const { login,loginGet, signup, registerGet,getUser,getUserData,setRemoveUser} = auth.actions;
+export const { login,loginGet, signup, registerGet,getUser,getUserData,setRemoveUser,updateListAccount} = auth.actions;
 
 export default auth.reducer;

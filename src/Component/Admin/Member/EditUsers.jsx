@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import classes from "./EditUsers.module.css";
 import { useDispatch } from "react-redux";
-import { signup } from "../../../Store/Auth";
+import {  updateListAccount } from "../../../Store/Auth";
 import Input from "./Input";
 const EditUser = (props) => {
   const dispatch = useDispatch();
@@ -32,6 +32,7 @@ const EditUser = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    const _id = props.data
     const id = form.id;
     const FullName = form.fullName;
     const email = form.email;
@@ -40,8 +41,9 @@ const EditUser = (props) => {
     const role = form.role;
     const department = form.department;
     dispatch(
-      signup({
+      updateListAccount({
         data: {
+          _id,
           id,
           FullName,
           email,
