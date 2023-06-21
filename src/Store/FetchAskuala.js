@@ -26,6 +26,7 @@ export const fetchUserLogin = async (data) => {
 };
 
 export const fetchUserRegister = async (data) => {
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/register", {
     data,
     ContentType: "application/json",
@@ -40,7 +41,7 @@ export const fetchUserRegister = async (data) => {
 };
 
 export const storebook = async (data) => {
-  console.log(data);x
+  console.log(data);
   const useData = await axios.post("http://localhost:5000/storebook", {
     data,
     ContentType: "application/json",
